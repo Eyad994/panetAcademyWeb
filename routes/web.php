@@ -12,18 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/aboutUs', 'HomeController@aboutUs');
 Route::get('/profile', 'HomeController@profile');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/joinUs', 'HomeController@joinUs');
-Route::get('/joinUs', 'HomeController@joinUs');
+Route::get('/userCourses', 'CourseController@userCourses');
+Route::get('/getLectures/{id}/{lecture_id?}', 'CourseController@getLectures');
 
 
 /***************************************************************/
@@ -41,7 +43,7 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
         Route::post('updateProfile', 'AuthController@updateProfile');
-        Route::get('course/{courseId}/lecture/{lectureId}', 'CourseController@getLectures');
+        /*Route::get('course/{courseId}/lecture/{lectureId}', 'CourseController@getLectures');*/
 
         /*********************** With Token *************************/
     });

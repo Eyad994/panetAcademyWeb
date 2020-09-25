@@ -1,19 +1,19 @@
 <div class="col-md-3" style="background: #f8f9fb;">
     <div class="row" style="text-align: center">
         <div class="col-md-12" style="padding: 50px 10px">
-            <img src="{{asset('img/icons/instagram.svg')}}" style="width: 40px" >
-            <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 40px" class="fab fa-facebook"></img>
-            <img src="{{asset('img/icons/twitter.svg')}}" style="width: 40px" class="fab fa-twitter" ></img>
-            <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 40px" class="fab fa-whatsapp"></img>
+            <img src="{{asset("img/icons/instagram.svg")}}" style="width: 40px" >
+            <img src="{{asset("img/icons/facebook.svg")}}" style=" width: 40px" class="fab fa-facebook"></img>
+            <img src="{{asset("img/icons/twitter.svg")}}" style="width: 40px" class="fab fa-twitter" ></img>
+            <img src="{{asset("img/icons/whatsapp.svg")}}" style="width: 40px" class="fab fa-whatsapp"></img>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h3 style="padding-bottom:20px ">Pobular Lecturers </h3>
+            <h3>Pobular Lecturers </h3>
         </div>
         <div class="col-md-12">
             <div style="background: #d9e5f1;width: 100%;border-radius: 5px;padding: 10px;float: left;margin-top: 20px">
-                <img src="{{asset('img/doctor.jpg')}}" width="70px" height="70px" style="border-radius: 5px;float: left;object-fit: cover;">
+                <img src="{{asset("img/doctor.jpg")}}" width="70px" height="70px" style="border-radius: 5px;float: left;object-fit: cover;">
                 <div style="width: 50%;float: left;padding-left: 10px;    padding-top: 5px;">
                     <span class="lecturer_info_name">Dr. Noor Ali</span>
                     <span  class="lecturer_info_details">Dentest</span>

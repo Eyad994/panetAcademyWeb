@@ -109,12 +109,14 @@
                             <span class="nav-link-text" data-i18n="nav.application_intel">Home</span>
                         </a>
                     </li>
+                    @auth
                     <li>
-                        <a href="#" title="Theme Settings" data-filter-tags="theme settings">
+                        <a href="{{asset('userCourses')}}" title="Theme Settings" data-filter-tags="theme settings">
                             <i class="fal fa-th"></i>
                             <span class="nav-link-text" data-i18n="nav.theme_settings">Courses</span>
                         </a>
                     </li>
+                    @endauth
                     <li>
                         <a href="{{asset('joinUs')}}" title="Package Info" data-filter-tags="package info">
                             <i class="fal fa-plus-square"></i>

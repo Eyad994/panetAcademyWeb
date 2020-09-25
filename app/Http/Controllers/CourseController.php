@@ -158,7 +158,8 @@ class CourseController extends Controller
             $data['instructor'] = $instructorName;
             $data['topic'] = $topicName;
             $data['related_lectures'] = $relatedLecturesArray;
-            return $this->apiResponse($data, null, 200);
+
+            //return $this->apiResponse($data, null, 200);
         }
         /*$relatedLecturesArray = [];
         $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
@@ -186,7 +187,7 @@ class CourseController extends Controller
         return $this->apiResponse($data, null, 200);*/
     }
 
-    public function getLectures($courseId, $lectureId)
+    public function getLectures($courseId, $lectureId =1)
     {
         if (auth()->check()) {
             $relatedLecturesArray = [];
@@ -194,7 +195,7 @@ class CourseController extends Controller
             if ($courseUser->user_id == auth()->id()) {
                 $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
                 if (is_null($lecture))
-                    return $this->apiResponse(null, 'No lecture was found!', 200, 1);
+                    return redirect()->back()->withErrors(['No Lecture was Found']);
                 $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
                 $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
                 $instructorName = $courseDetails['instructor']['name'];
@@ -210,12 +211,13 @@ class CourseController extends Controller
                 $data['instructor'] = $instructorName;
                 $data['topic'] = $topicName;
                 $data['related_lectures'] = $relatedLectures;
-
-                return $this->apiResponse($data, null, 200);
+                $data['course_id'] =   $courseId;
+                return view('user.lectures',compact('data'));
+             /*   return $this->apiResponse($data, null, 200);*/
             }
             $message = collect([]);
             $message->push('User is not allowed access lecture');
-            return $this->apiResponse(null, $message, 200, 1);
+
         } else {
             $relatedLecturesArray = [];
             $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
@@ -223,7 +225,7 @@ class CourseController extends Controller
             {
                 $message = collect([]);
                 $message->push('No lecture was found!');
-                return $this->apiResponse(null, $message, 200, 1);
+                return redirect()->back()->withErrors(['No Lecture was Found']);
             }
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
             $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
@@ -243,8 +245,32 @@ class CourseController extends Controller
                 'topic' => $topicName,
                 'related_lectures' => $relatedLecturesArray
             ];
-            return $this->apiResponse($data, null, 200);
+
+         //   return $data;
+            return view('user.courseDetails',compact('data'));
         }
+
+
+    }
+
+    public function userCourses(){
+        $url = env('APP_URL');
+        $data['courses'] = auth()->user()->courses;
+
+        foreach ($data['courses'] as $key => $course)
+        {
+            $data['courses'][$key]['instructor'] = $course->instructor;
+            unset($data['courses'][$key]['instructor']['image']);
+            $data['courses'][$key]['image'] = "$url/images/course/".$course['image'];
+            $data['courses'][$key]['lectures'] = Video::where('course_id', $course->id)->count();
+        }
+
+        return view('user.userCourses',compact('data'));
+    }
+    public function courses(Request $request){
+        $courses_id = $request->id;
+
+        return view('user.courses');
     }
 
 

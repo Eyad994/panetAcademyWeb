@@ -1,9 +1,9 @@
 @extends('layouts.menuside')
 @section('content')
-    <div class="col-md-9" style="background: #ffffff;padding: 50px 30px;">
+{{--    <div class="col-md-9" style="background: #ffffff;padding: 50px 30px;">
         <div class="row">
             <div class="col-md-5">
-                <h3 style="padding: 20px 0"><span style="color: #01376e">{{$data['name']}}</span> - {{$data['topic']}}</h3>
+                <h3 style="padding: 20px 0"><span style="color: #01376e">{{$course->name}}</span> - {{$course->topic->name}}</h3>
             </div>
             <div class="col-md-7">
                 <div class="input-group bg-white shadow-inset-2" style="border-radius: 50px;">
@@ -19,15 +19,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="video_content" style="padding: 20px 0">
-                  <img src="{{$data['thumbnail']}}" style="width: 100%;height: 600px">
+                    <img src="{{$course->image}}" style="width: 100%;height: 600px">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h2 style="padding: 10px 0"><span style="color: #01376e">{{$data['name']}}</span></h2>
+                <h2 style="padding: 10px 0"><span style="color: #01376e">{{$course->name}}</span></h2>
                 <p>
-                    {{$data['description']}}
+                    {{$course->description}}
                 </p>
             </div>
         </div>
@@ -36,9 +36,9 @@
         <div class="row" style="text-align: center">
             <div class="col-md-12" style="padding: 50px 10px">
                 <img src="{{asset('img/icons/instagram.svg')}}" style="width: 40px" >
-                <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 40px" class="fab fa-facebook">
-                <img src="{{asset('img/icons/twitter.svg')}}" style="width: 40px" class="fab fa-twitter" >
-                <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 40px" class="fab fa-whatsapp">
+                <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 40px" class="fab fa-facebook"></img>
+                <img src="{{asset('img/icons/twitter.svg')}}" style="width: 40px" class="fab fa-twitter" ></img>
+                <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 40px" class="fab fa-whatsapp"></img>
             </div>
         </div>
         <div class="row">
@@ -46,24 +46,26 @@
                 <h3 style="padding-bottom:20px ">Next Lecturers </h3>
             </div>
             <div class="col-md-12">
-                @foreach($data['related_lectures'] as $key => $val)
+                @foreach($course->lectures as $key => $val)
                     <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">
                         <img src="{{$val->thumbnail_size295}}"  height="80px" style="float: left;width: 40%">
                         <div style="width: 60%;height: 77px;overflow: hidden">
                             <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span style="color: #01376e">{{$val->name}}</span> - <span>{{$data['name']}}</span>
+                                <span style="color: #01376e">{{$val->name}}</span> - <span>{{$course->name}}</span>
                             </div>
                             <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                               <span> {{$data['topic']}}</span>
+                               <span> {{$course->topic->name}}</span>
                             </div>
                             <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                               <span> {{$data['description']}}</span>
+                               <span> {{$course->description}}</span>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-    </div>
-
+    </div>--}}
+<?php
+print_r($data);
+    ?>
 @endsection
