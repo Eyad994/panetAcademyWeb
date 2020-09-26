@@ -21,13 +21,14 @@ class CourseController extends Controller
     public function getCoursesByTopic($topicId)
     {
         $url = env('APP_URL');
-        $courses = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
             ->with(['instructor:id,name', 'topic:id,name'])
             ->withCount('lectures')
             ->where('topic_id', $topicId)->get();
 
-        if (count($courses) > 0) {
-            return $this->apiResponse($courses, null, 200, 0);
+        if (count($data) > 0) {
+          //  return $data;
+            return view('user.topicCourses',compact('data'));
         } else {
             $message = collect([]);
             $message->push('No topics were found!');
@@ -39,13 +40,14 @@ class CourseController extends Controller
     public function getCoursesByInstructor($instructorId)
     {
         $url = env('APP_URL');
-        $courses = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
             ->with(['instructor:id,name', 'topic:id,name'])
             ->withCount('lectures')
             ->where('instructor_id', $instructorId)->get();
 
-        if (count($courses) > 0) {
-            return $this->apiResponse($courses, null, 200, 0);
+        if (count($data) > 0) {
+          //  return $this->apiResponse($courses, null, 200, 0);
+            return view('user.topicCourses',compact('data'));
         } else {
             $message = collect([]);
             $message->push('No instructors were found!');
@@ -219,6 +221,7 @@ class CourseController extends Controller
             $message->push('User is not allowed access lecture');
 
         } else {
+
             $relatedLecturesArray = [];
             $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
             if (is_null($lecture))
@@ -227,6 +230,7 @@ class CourseController extends Controller
                 $message->push('No lecture was found!');
                 return redirect()->back()->withErrors(['No Lecture was Found']);
             }
+          
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
             $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
             $instructorName = $courseDetails['instructor']['name'];

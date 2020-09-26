@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0a072e-8141-4da2-82c7-cbbe37476dfd" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/User/courses.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/User/lectures.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/User/userCourses.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/panet_project.iml" afterPath="$PROJECT_DIR$/.idea/panet_project.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/User/topicCourses.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/User/courseDetails.blade.php" afterPath="$PROJECT_DIR$/resources/views/User/courseDetails.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/User/userCourses.blade.php" afterPath="$PROJECT_DIR$/resources/views/User/userCourses.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/menuside.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/menuside.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/rightside.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/rightside.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/asm89/stack-cors/" />
     <ignored path="$PROJECT_DIR$/vendor/brick/math/" />
@@ -149,8 +143,28 @@
       <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3349">
-              <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+            <state relative-caret-position="365">
+              <caret line="232" column="10" lean-forward="false" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userCourses.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/User/userCourses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="920">
+              <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topicCourses.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/User/topicCourses.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -159,8 +173,8 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="66" />
+            <state relative-caret-position="638">
+              <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -169,21 +183,11 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2278">
+            <state relative-caret-position="1921">
               <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding>
                 <element signature="e#40#76#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -217,8 +221,8 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state relative-caret-position="332">
+              <caret line="144" column="75" lean-forward="false" selection-start-line="144" selection-start-column="75" selection-end-line="144" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -252,19 +256,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userCourses.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/User/userCourses.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-              <folding>
-                <element signature="e#3867#3889#0#HTML" expanded="true" />
-                <element signature="e#4122#4207#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="courseDetails.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/User/courseDetails.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -288,8 +279,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getCourseDetails</find>
-      <find>img</find>
       <find>vendors</find>
       <find>gree</find>
       <find>drop</find>
@@ -313,11 +302,13 @@
       <find>'</find>
       <find>-&gt;</find>
       <find>image</find>
-      <find>-&gt;id</find>
-      <find>layouts</find>
       <find>userCourses</find>
-      <find>topics_item</find>
       <find>topic</find>
+      <find>-&gt;id</find>
+      <find>courses</find>
+      <find>layouts</find>
+      <find>getCoursesByTopic</find>
+      <find>topics_item</find>
     </findStrings>
     <replaceStrings>
       <replace>$data</replace>
@@ -347,14 +338,15 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/resources/views/User/courses.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/User/userCourses.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/User/lectures.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/rightside.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/menuside.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
         <option value="$PROJECT_DIR$/resources/views/User/courseDetails.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/User/userCourses.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/User/topicCourses.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
       </list>
     </option>
   </component>
@@ -698,10 +690,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laravel\Eyad\panetacademy\panetAcademyWeb\resources\views\User" />
+      <recent name="C:\laravel\Eyad\panetacademy\panetAcademyWeb\resources\views" />
       <recent name="C:\laravel\Eyad\panetacademy\panetAcademyWeb" />
       <recent name="C:\laravel\Eyad\panetacademyWeb-master\public\js\meyer-reset" />
       <recent name="C:\laravel\Eyad\panetacademyWeb-master\public\js\3.5.1" />
-      <recent name="C:\laravel\Eyad\panetacademyWeb-master\resources\views\User" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laravel\Eyad\panetacademyWeb-master\public\css" />
@@ -829,12 +821,12 @@
       <workItem from="1600787715189" duration="27622000" />
       <workItem from="1600957722314" duration="16741000" />
       <workItem from="1601024443086" duration="193000" />
-      <workItem from="1601028113772" duration="12782000" />
+      <workItem from="1601028113772" duration="16308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58333000" />
+    <option name="totallyTimeSpent" value="61859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -877,32 +869,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/menuside.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#9681#9689#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#header#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#11237#11244#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/User/aboutUs.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1168,13 +1134,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/User/userCourses.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/User/courseDetails.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="357">
+          <caret line="21" column="86" lean-forward="false" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
           <folding>
-            <element signature="e#3867#3889#0#HTML" expanded="true" />
-            <element signature="e#4122#4207#0#HTML" expanded="true" />
+            <element signature="e#1185#1218#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1205,13 +1170,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/User/courseDetails.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="86" lean-forward="false" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
+        <state relative-caret-position="1921">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
-            <element signature="e#1185#1218#0#HTML" expanded="true" />
+            <element signature="e#40#76#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,36 +1210,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/User/userCourses.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#76#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="920">
+          <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/User/topicCourses.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="66" />
+        <state relative-caret-position="332">
+          <caret line="144" column="75" lean-forward="false" selection-start-line="144" selection-start-column="75" selection-end-line="144" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3349">
-          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        <state relative-caret-position="365">
+          <caret line="232" column="10" lean-forward="false" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
           <folding />
         </state>
       </provider>
