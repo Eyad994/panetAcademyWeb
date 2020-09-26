@@ -41,7 +41,7 @@ Route::group([
         'middleware' => 'auth:api'
     ], function() {
         Route::get('logout', 'AuthController@logout');
-        Route::get('user', 'AuthController@user');
+        Route::get('User', 'AuthController@User');
         Route::post('updateProfile', 'AuthController@updateProfile');
         /*Route::get('course/{courseId}/lecture/{lectureId}', 'CourseController@getLectures');*/
 
@@ -50,7 +50,7 @@ Route::group([
 });
 
 Route::get('home', 'HomeController@index');
-Route::post('filters', 'HomeController@filters');
+Route::post('filters', 'HomeController@filters')->name('filters');
 Route::get('topic/{topic_id}', 'CourseController@getCoursesByTopic');
 Route::get('instructor/{instructor_id}', 'CourseController@getCoursesByInstructor');
 Route::get('course/{course_id}', 'CourseController@getCourseDetails');

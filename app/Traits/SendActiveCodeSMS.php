@@ -11,7 +11,7 @@ trait SendActiveCodeSMS
         $url = 'http://josmsservice.com/smsonline/msgservicejo.cfm';
 
         $fields = array(
-            'AccName' => "MASSAR",		// The user name of gateway
+            'AccName' => "MASSAR",		// The User name of gateway
             'AccPass' => 'E3@hB7$PgG4', // the password of gateway  1V2d3h4q
             'numbers' => $userMobile, // 962790000000
             'msg' => $message,

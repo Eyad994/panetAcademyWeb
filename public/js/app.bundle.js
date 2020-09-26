@@ -585,7 +585,7 @@ var initApp = (function(app) {
 			var filter = $(this).val().toLowerCase(),
 				listPrev = $(list).next().filter('.js-filter-message');
 	
-			/* when user types more than 1 letter start search filter */
+			/* when User types more than 1 letter start search filter */
 			if(filter.length > 1) {
 
 				/* this finds all data-filter-tags in a list that contain the input val,
@@ -1006,7 +1006,7 @@ var initApp = (function(app) {
 		switch ( true ) {
 
 
-			/* fires when user switches to nav-function-top on desktop view */
+			/* fires when User switches to nav-function-top on desktop view */
 			case ( $.fn.menuSlider && myapp_config.root_.hasClass('nav-function-top') && $("#js-nav-menu-wrapper").length == false && !myapp_config.root_.hasClass('mobile-view-activated') ):
 
 				/* build horizontal navigation */
@@ -1021,7 +1021,7 @@ var initApp = (function(app) {
 
 				break;
 
-			/* fires when user resizes screen to mobile size or app is loaded on mobile resolution */
+			/* fires when User resizes screen to mobile size or app is loaded on mobile resolution */
 			case ( myapp_config.root_.hasClass('nav-function-top') && $("#js-nav-menu-wrapper").length == true && myapp_config.root_.hasClass('mobile-view-activated') ):
 
 				/* destroy horizontal nav */
@@ -1276,7 +1276,7 @@ var initApp = (function(app) {
 				console.log("%c✔ SlimScroll plugin active", "color: #148f32");	
 
 		} else {
-			console.log("WARN! $.fn.slimScroll not loaded or user is on desktop");
+			console.log("WARN! $.fn.slimScroll not loaded or User is on desktop");
 			myapp_config.root_.addClass("no-slimscroll");
 		}
 

@@ -157,7 +157,7 @@
         <div class="page-content-wrapper">
             <!-- BEGIN Page Header -->
             <header class="page-header" role="banner">
-                <!-- we need this logo when user switches to nav-function-top -->
+                <!-- we need this logo wUseruser switches to nav-function-top -->
                 <div class="page-logo">
                     <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
                         <img src="{{asset('img/logo.png')}}" alt="SmartAdmin WebApp" aria-roledescription="logo">
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="ml-auto d-flex">
-                    <!-- app user menu -->
+                    <!-- Useruser menu -->
                     <div>
                         <!-- Modal -->
                         @auth
@@ -191,17 +191,22 @@
                                                 <img src="{{asset('img/demo/avatars/avatar-admin.png')}}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
                                             </span>
                                     <div class="info-card-text">
-                                        <div class="fs-lg text-truncate text-truncate-lg">Dr. Codex Lantern</div>
-                                        <span class="text-truncate text-truncate-md opacity-80">drlantern@gotbootstrap.com</span>
+                                        <div class="fs-lg text-truncate text-truncate-lg">{{ auth()->user()->username }}</div>
+                                        <span class="text-truncate text-truncate-md opacity-80">{{ auth()->user()->email }}</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item fw-500 pt-3 pb-3" href="page_login-alt.html">
-                                <span data-i18n="drpdwn.page-logout">Logout</span>
-                                <span class="float-right fw-n">&commat;codexlantern</span>
+                            <a class="dropdown-item fw-500 pt-3 pb-3" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                         @else
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right;background: none;border: none;box-shadow: none;color: #7d7878;">
@@ -227,13 +232,13 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <form action="{{asset('login')}}" method="POST" style="width: 100%" >
+                                            <form action="{{route('login')}}" method="POST" id="loginForm" style="width: 100%" >
                                                 @csrf
                                             <div class="col-md-12" style="padding-top:10px;text-align: justify ">
                                                 <fieldset class="formRow">
                                                     <div class="formRow--item">
                                                         <label for="user_name" class="formRow--input-wrapper js-inputWrapper">
-                                                            <input type="text" class="formRow--input js-input" name="user_name" id="user_name"placeholder="User Name" required>
+                                                            <input type="text" class="formRow--input js-input" name="username" id="user_name" placeholder="User Name" required>
                                                         </label>
                                                     </div>
                                                 </fieldset>
@@ -251,6 +256,9 @@
                                                 <input type="submit" class="submit_filter_form" value="GO">
                                             </div>
                                             </form>
+                                            <div class="col-md-12">
+                                                <span style="color: red" id="errorLogin"></span>
+                                            </div>
                                             <div class="col-md-12" style="padding-top:10px;text-align: justify ">
                                                 <a href="#" style="color: #022c58" >Forgot Password ?</a>
                                             </div>
@@ -278,5 +286,38 @@
 <script src="{{asset('js/vendors.bundle.js')}}"></script>
 <script src="{{asset('js/app.bundle.js')}}"></script>
 <script  src="{{asset('js/script.js')}}"></script>
+<script>
+    $('#loginForm').on('submit', function (e) {
+        e.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: new FormData(this),
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                window.location.href = '/';
+                //location.reload();
+            },
+            error: function (data) {
+
+                var error_html = data.responseJSON.message;
+                var error = $('#errorLogin');
+                error.css('display', 'block');
+                error.text(error_html);
+                /*Swal.fire({
+                 icon: 'error',
+                 title: 'Oops...',
+                 html: error_html,
+                 })*/
+            }
+        });
+
+    })
+</script>
 </body>
 </html>

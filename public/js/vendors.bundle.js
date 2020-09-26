@@ -2547,7 +2547,7 @@ getText = Sizzle.getText = function( elem ) {
 
 Expr = Sizzle.selectors = {
 
-	// Can be adjusted by the user
+	// Can be adjusted by the User
 	cacheLength: 50,
 
 	createPseudo: markFunction,
@@ -2823,7 +2823,7 @@ Expr = Sizzle.selectors = {
 				fn = Expr.pseudos[ pseudo ] || Expr.setFilters[ pseudo.toLowerCase() ] ||
 					Sizzle.error( "unsupported pseudo: " + pseudo );
 
-			// The user may use createPseudo to indicate that
+			// The User may use createPseudo to indicate that
 			// arguments are needed to create the filter function
 			// just as Sizzle does
 			if ( fn[ expando ] ) {
@@ -5098,9 +5098,9 @@ var dataUser = new Data();
 //	1. Enforce API surface and semantic compatibility with 1.9.x branch
 //	2. Improve the module's maintainability by reducing the storage
 //		paths to a single mechanism.
-//	3. Use the same single mechanism to support "private" and "user" data.
-//	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
-//	5. Avoid exposing implementation details on user objects (eg. expando properties)
+//	3. Use the same single mechanism to support "private" and "User" data.
+//	4. _Never_ expose "private" data to User code (TODO: Drop _data, _removeData)
+//	5. Avoid exposing implementation details on User objects (eg. expando properties)
 //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
 
 var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
@@ -6593,7 +6593,7 @@ function cloneCopyEvent( src, dest ) {
 		}
 	}
 
-	// 2. Copy user data
+	// 2. Copy User data
 	if ( dataUser.hasData( src ) ) {
 		udataOld = dataUser.access( src );
 		udataCur = jQuery.extend( {}, udataOld );
@@ -7389,7 +7389,7 @@ jQuery.extend( {
 
 		// Make sure that we're working with the right name. We don't
 		// want to query the value if it is a CSS custom property
-		// since they are user-defined.
+		// since they are User-defined.
 		if ( !isCustomProp ) {
 			name = finalPropName( origName );
 		}
@@ -7456,7 +7456,7 @@ jQuery.extend( {
 
 		// Make sure that we're working with the right name. We don't
 		// want to modify the value if it is a CSS custom property
-		// since they are user-defined.
+		// since they are User-defined.
 		if ( !isCustomProp ) {
 			name = finalPropName( origName );
 		}
@@ -10303,7 +10303,7 @@ jQuery._evalUrl = function( url ) {
 	return jQuery.ajax( {
 		url: url,
 
-		// Make this explicit, since user can override this through ajaxSetup (#11264)
+		// Make this explicit, since User can override this through ajaxSetup (#11264)
 		type: "GET",
 		dataType: "script",
 		cache: true,
@@ -10816,7 +10816,7 @@ jQuery.fn.load = function( url, params, callback ) {
 
 			// If "type" variable is undefined, then "GET" method will be used.
 			// Make value of this field explicit since
-			// user can override it through ajaxSetup method
+			// User can override it through ajaxSetup method
 			type: type || "GET",
 			dataType: "html",
 			data: params
@@ -15044,7 +15044,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			delayedTriggers = [];
 
 		// We first have to update the dom position of the actual currentItem
-		// Note: don't do it if the current item is already removed (by a user), or it gets reappended (see #4088)
+		// Note: don't do it if the current item is already removed (by a User), or it gets reappended (see #4088)
 		if(!this._noFinalSort && this.currentItem.parent().length) {
 			this.placeholder.before(this.currentItem);
 		}
@@ -17521,7 +17521,7 @@ function destroy() {
 
   this.disableEventListeners();
 
-  // remove the popper if user explicity asked for the deletion on destroy
+  // remove the popper if User explicity asked for the deletion on destroy
   // do not use `remove` because IE11 doesn't support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
@@ -19954,7 +19954,7 @@ return Popper;
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
           // part of the mouse compatibility events on first tap - the carousel
-          // would stop cycling until user tapped out of it;
+          // would stop cycling until User tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
@@ -23687,7 +23687,7 @@ return Popper;
   var defaults = {
     // default language
     locale: 'en',
-    // show backdrop or not. Default to static so user has to interact with dialog
+    // show backdrop or not. Default to static so User has to interact with dialog
     backdrop: 'static',
     // animate the modal in/out
     animate: true,
@@ -23984,7 +23984,7 @@ return Popper;
 
     if (options.backdrop !== 'static') {
       // A boolean true/false according to the Bootstrap docs
-      // should show a dialog the user can dismiss by clicking on
+      // should show a dialog the User can dismiss by clicking on
       // the background.
       // We always only ever pass static/false to the actual
       // $.modal function because with "true" we can't trap
@@ -24024,7 +24024,7 @@ return Popper;
 
     dialog.on('click', '.bootbox-close-button', function (e) {
       // onEscape might be falsy but that's fine; the fact is
-      // if the user has managed to click the close button we
+      // if the User has managed to click the close button we
       // have to close the dialog, callback or not
       processCallback(e, dialog, callbacks.onEscape);
     });
@@ -24071,7 +24071,7 @@ return Popper;
     }
 
     // override the ok and escape callback to make sure they just invoke
-    // the single user-supplied one (if provided)
+    // the single User-supplied one (if provided)
     options.buttons.ok.callback = options.onEscape = function () {
       if ($.isFunction(options.callback)) {
         return options.callback.call(this);
@@ -24098,7 +24098,7 @@ return Popper;
       throw new Error('confirm requires a callback');
     }
 
-    // overrides; undo anything the user tried to set they shouldn't have
+    // overrides; undo anything the User tried to set they shouldn't have
     options.buttons.cancel.callback = options.onEscape = function () {
       return options.callback.call(this, false);
     };
@@ -24140,7 +24140,7 @@ return Popper;
       options.inputType = defaults.inputType;
     }
 
-    // capture the user's show value; we always set this to false before
+    // capture the User's show value; we always set this to false before
     // spawning the dialog to give us a chance to attach some handlers to
     // it, but we need to make sure we respect a preference not to show it
     shouldShow = (options.show === undefined) ? defaults.show : options.show;
@@ -24433,7 +24433,7 @@ return Popper;
     });
 
     if ($.trim(options.message) !== '') {
-      // Add the form to whatever content the user may have added.
+      // Add the form to whatever content the User may have added.
       var message = $(templates.promptMessage).html(options.message);
       form.prepend(message);
       options.message = form;
@@ -24492,7 +24492,7 @@ return Popper;
   }
 
 
-  //  Merge a set of default dialog options with user supplied arguments
+  //  Merge a set of default dialog options with User supplied arguments
   function mergeArguments(defaults, args, properties) {
     return $.extend(
       // deep merge
@@ -24531,9 +24531,9 @@ return Popper;
     };
 
     // Ensure the buttons properties generated, *after* merging
-    // with user args are still valid against the supplied labels
+    // with User args are still valid against the supplied labels
     return validateButtons(
-      // merge the generated base properties with user supplied arguments
+      // merge the generated base properties with User supplied arguments
       mergeArguments(
         baseOptions,
         args,
@@ -24595,7 +24595,7 @@ return Popper;
 
 
 
-  //  Filter and tidy up any user supplied parameters to this dialog.
+  //  Filter and tidy up any User supplied parameters to this dialog.
   //  Also looks for any shorthands used and ensures that the options
   //  which are returned are all normalized properly
   function sanitize(options) {
@@ -25201,7 +25201,7 @@ jQuery.fn.extend({
         // enables always-on mode for the scrollbar
         alwaysVisible : false,
 
-        // check if we should hide the scrollbar when user is hovering over
+        // check if we should hide the scrollbar when User is hovering over
         disableFadeOut : false,
 
         // sets visibility of the rail
@@ -25231,7 +25231,7 @@ jQuery.fn.extend({
         // scroll amount applied to each mouse wheel step
         wheelStep : 20,
 
-        // scroll amount applied when user is using gestures
+        // scroll amount applied when User is using gestures
         touchScrollStep : 200,
 
         // sets border radius
@@ -25447,7 +25447,7 @@ jQuery.fn.extend({
 		      }
           if (e.originalEvent.touches.length)
           {
-            // see how far user swiped
+            // see how far User swiped
             var diff = (touchDif - e.originalEvent.touches[0].pageY) / o.touchScrollStep;
             // scroll content
             scrollContent(diff, true);

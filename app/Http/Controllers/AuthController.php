@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-
-use App\Http\Controllers\Controller;
 use App\Models\AcademicYear;
 use App\Models\University;
 use App\Models\Video;
@@ -23,7 +21,7 @@ class AuthController extends Controller
     use ApiResponser, SendActiveCodeSMS;
 
     /**
-     * Create user
+     * Create User
      *
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response [string] message
@@ -34,7 +32,6 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        die('xx');
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -70,15 +67,15 @@ class AuthController extends Controller
         $user->save();
 
         $message = collect([]);
-        $message->push('Successfully Registration user');
+        $message->push('Successfully Registration User');
 
         return $this->apiResponse($request->user(), $message, 200, 1);
 
-        return $this->apiResponse($request->user(), 'Successfully Registration user', 200, 0);
+        return $this->apiResponse($request->user(), 'Successfully Registration User', 200, 0);
     }
 
     /**
-     * Login user and create token
+     * Login User and create token
      *
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response [string] access_token
@@ -88,6 +85,7 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             'username' => 'required|string',
             'password' => 'required|string',
@@ -135,7 +133,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout user (Revoke the token)
+     * Logout User (Revoke the token)
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse [string] message
@@ -153,7 +151,7 @@ class AuthController extends Controller
      * Get the authenticated User
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response [json] user object
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response [json] User object
      */
     public function user(Request $request)
     {
@@ -209,7 +207,7 @@ class AuthController extends Controller
         }
 
         $user->update($request->except(['password', 'username']));
-        /*$user->update(['password' => Hash::make($request->password)]);*/
+        /*$User->update(['password' => Hash::make($request->password)]);*/
         $message = collect([]);
         $message->push('Updated successfully');
 
