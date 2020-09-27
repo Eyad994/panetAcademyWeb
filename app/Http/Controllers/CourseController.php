@@ -41,11 +41,12 @@ class CourseController extends Controller
     {
         $url = env('APP_URL');
         $data = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
-            ->with(['instructor:id,name', 'topic:id,name'])
+            ->with(['instructor:id,name', 'topic:id,name', 'lectures'])
             ->withCount('lectures')
             ->where('instructor_id', $instructorId)->get();
 
         if (count($data) > 0) {
+
           //  return $this->apiResponse($courses, null, 200, 0);
             return view('User.topicCourses',compact('data'));
         } else {
@@ -55,7 +56,6 @@ class CourseController extends Controller
             //return back()->with(['msg' => 'No instructors were found']);
             //return $this->apiResponse(null, $message, 200, 1);
         }
-
     }
 
     public function getCourseDetails($courseId)
@@ -191,48 +191,48 @@ class CourseController extends Controller
 
     public function getLectures($courseId, $lectureId =1)
     {
-        if (auth()->check()) {
+        $courseUser = UserCourse::where('course_id', $courseId)->first();
+        if (auth()->check() && !is_null($courseUser)) {
             $relatedLecturesArray = [];
-            $courseUser = UserCourse::where('course_id', $courseId)->first();
+                if ($courseUser->user_id == auth()->id()) {
+                    $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
+                    if (is_null($lecture))
+                        return redirect('/');
+                    // return redirect()->back()->withErrors(['No Lecture was Found']);
 
-            if ($courseUser->user_id == auth()->id()) {
-                $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
-                if (is_null($lecture))
-                    return redirect('/');
-                   // return redirect()->back()->withErrors(['No Lecture was Found']);
-                $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
-                $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
-                $instructorName = $courseDetails['instructor']['name'];
-                $topicName = $courseDetails['topic']['name'];
+                    $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
 
-                foreach ($relatedLectures as $relatedLecture) {
-                    $relatedLecture['uri'] = env('VIMEO_URL') . $relatedLecture->uri;
-                    array_push($relatedLecturesArray, $relatedLecture);
+                    $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
+                    $instructorName = $courseDetails['instructor']['name'];
+                    $topicName = $courseDetails['topic']['name'];
+                    foreach ($relatedLectures as $relatedLecture) {
+                        $relatedLecture['uri'] = env('VIMEO_URL') . $relatedLecture->uri;
+                        array_push($relatedLecturesArray, $relatedLecture);
+                    }
+
+                    $data = $lecture;
+                    $data['uri'] = env('VIMEO_URL') . $lecture->uri;
+                    $data['instructor'] = $instructorName;
+                    $data['topic'] = $topicName;
+                    $data['related_lectures'] = $relatedLectures;
+                    $data['course_id'] =   $courseId;
+                    return view('User.lectures',compact('data'));
+                    /*   return $this->apiResponse($data, null, 200);*/
                 }
-
-                $data = $lecture;
-                $data['uri'] = env('VIMEO_URL') . $lecture->uri;
-                $data['instructor'] = $instructorName;
-                $data['topic'] = $topicName;
-                $data['related_lectures'] = $relatedLectures;
-                $data['course_id'] =   $courseId;
-                return view('User.lectures',compact('data'));
-             /*   return $this->apiResponse($data, null, 200);*/
-            }
-            $message = collect([]);
-            $message->push('User is not allowed access lecture');
-
+                $message = collect([]);
+                $message->push('User is not allowed access lecture');
         } else {
 
             $relatedLecturesArray = [];
-            $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
+            $lecture = Video::where('course_id', $courseId)->first(); //where('id', $lectureId)->
             if (is_null($lecture))
             {
                 $message = collect([]);
                 $message->push('No lecture was found!');
+                return redirect('/');
                 //return redirect()->back()->withErrors(['No Lecture was Found']);
             }
-          
+
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
             $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
             $instructorName = $courseDetails['instructor']['name'];
