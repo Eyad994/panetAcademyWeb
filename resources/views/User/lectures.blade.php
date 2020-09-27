@@ -54,10 +54,10 @@
     <div class="col-md-3" style="background: #f8f9fb;">
         <div class="row" style="text-align: center">
             <div class="col-md-12" style="padding: 50px 10px">
-                <img src="{{asset('img/icons/instagram.svg')}}" style="width: 40px" >
-                <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 40px" class="fab fa-facebook"></img>
-                <img src="{{asset('img/icons/twitter.svg')}}" style="width: 40px" class="fab fa-twitter" ></img>
-                <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 40px" class="fab fa-whatsapp"></img>
+                <img src="{{asset('img/icons/instagram.svg')}}" style="width: 30px" >
+                <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 30px" class="fab fa-facebook"></img>
+                <img src="{{asset('img/icons/twitter.svg')}}" style="width: 30px" class="fab fa-twitter" ></img>
+                <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 30px" class="fab fa-whatsapp"></img>
             </div>
         </div>
         <div class="row">
@@ -74,10 +74,10 @@
                                     <span style="color: #01376e">{{$val->name}}</span> - <span>{{$data->name}}</span>
                                 </div>
                                 <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                   <span>{{$data->topic}} </span>
+                                    <span>{{$data->topic}} </span>
                                 </div>
                                 <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                   <span> {{$data->description}}</span>
+                                    <span> {{$data->description}}</span>
                                 </div>
                             </div>
                         </div>

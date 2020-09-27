@@ -230,7 +230,7 @@ class CourseController extends Controller
                 $message->push('No lecture was found!');
                 return redirect()->back()->withErrors(['No Lecture was Found']);
             }
-          
+
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
             $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
             $instructorName = $courseDetails['instructor']['name'];
