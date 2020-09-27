@@ -98,7 +98,7 @@
                             <div class="row">
                                 @foreach($data['courses'] as $k =>$val)
                                     <div class="col-md-4" style="margin-bottom: 20px">
-                                        <a href="{{asset('getLectures/'.$val->id)}}">
+                                        <a href="{{asset('getLectures/'.$val->id."/". \App\Models\Video::where('course_id', $val->id)->value('id'))}}">
                                             <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
                                                 <img src="{{$val->image}}" style="width: 100%;height: 200px;object-fit: cover;">
                                                 <div style="height: 150px;background: #dce7f2;float: left;width: 100%;padding: 10px;overflow: hidden;">

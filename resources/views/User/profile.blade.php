@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 style="font-size: 25px;padding: 40px 0px">
-                    Hi <span style="color: #0A246A">Ahmad</span>
+                    Hi <span style="color: #0A246A">{{ auth()->user()->first_name }}</span>
                 </h1>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="firstname" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="text" class="formRow--input js-input" name="firstname" id="firstname" value="ccccccc" placeholder="First name">
+                            <input type="text" class="formRow--input js-input" name="firstname" id="firstname" value="{{ auth()->user()->first_name }}" placeholder="First name">
                         </label>
                     </div>
                 </fieldset>
@@ -37,7 +37,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="lastname" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="text" class="formRow--input js-input" name="lastname" id="lastname" placeholder="Last name">
+                            <input type="text" class="formRow--input js-input" name="lastname" id="lastname" value="{{ auth()->user()->last_name }}" placeholder="Last name">
                         </label>
                     </div>
                 </fieldset>
@@ -46,7 +46,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="phone_number" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="number" class="formRow--input js-input" id="phone_number" name="phone_number" placeholder="Phone number">
+                            <input type="number" class="formRow--input js-input" id="phone_number" value="{{ auth()->user()->phone_number }}" name="phone_number" placeholder="Phone number">
                         </label>
                     </div>
                 </fieldset>
@@ -57,8 +57,8 @@
                         <label for="gender" class="formRow--input-wrapper js-inputWrapper">
                             <select class="formRow--input js-input" name="gender" id="gender" placeholder="Gender" style="background: #ffffff">
                                 <option value=""></option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option value="male" {{ auth()->user()->gender == 1 ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ auth()->user()->gender == 2 ? 'selected' : '' }}>Female</option>
                             </select>
                         </label>
                     </div>
@@ -68,7 +68,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="birthdate" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="date" class="formRow--input js-input" name="birthdate" id="birthdate" placeholder="Date Of Birth">
+                            <input type="date" class="formRow--input js-input" name="birthdate" id="birthdate" placeholder="">
                         </label>
                     </div>
                 </fieldset>
@@ -77,8 +77,8 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="university" class="formRow--input-wrapper js-inputWrapper">
-                            <select class="formRow--input js-input" id="university" placeholder="University" style="background: #FFFFFF">
-                                <option value=""></option>
+                            <select class="formRow--input js-input" id="university" placeholder="" style="background: #FFFFFF">
+                                <option value="" selected>{{ auth()->user()->university->name }}</option>
                             </select>
                         </label>
                     </div>
@@ -91,7 +91,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="major" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="text" class="formRow--input js-input" id="major" placeholder="Major">
+                            <input type="text" class="formRow--input js-input" value="{{ auth()->user()->major->name }}" id="major" placeholder="Major">
                         </label>
                     </div>
                 </fieldset>
@@ -100,7 +100,7 @@
                 <fieldset class="formRow">
                     <div class="formRow--item">
                         <label for="academicyear" class="formRow--input-wrapper js-inputWrapper">
-                            <input type="text" class="formRow--input js-input" id="academicyear" placeholder="Academic Year">
+                            <input type="text" class="formRow--input js-input" value="{{ auth()->user()->academic->name }}" id="academicyear" placeholder="Academic Year">
                         </label>
                     </div>
                 </fieldset>

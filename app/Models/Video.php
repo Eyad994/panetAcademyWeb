@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Video extends BasicModel
 {
-    protected $hidden = ["created_at", "updated_at", "course_id", "status"];
+    protected $hidden = ["created_at", "updated_at", "status"];
 
     public function getDurationAttribute()
     {

@@ -64,7 +64,7 @@
             <div class="col-md-12">
                 <h3 style="padding-bottom:20px ">Next Lecturers </h3>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" style="height: 600px;overflow-y: scroll">
                 @foreach($data->related_lectures as $key => $val)
                     <a href="{{asset('getLectures/'.$data->course_id.'/'.$val->id)}}">
                         <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">

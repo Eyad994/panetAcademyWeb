@@ -61,34 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">
-                        <img src="{{$val->thumbnail_size295}}"  height="80px" style="float: left;width: 40%">
-                        <div style="width: 60%;height: 77px;overflow: hidden">
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span style="color: #01376e">{{$val->name}}</span> - <span>{{$data['name']}}</span>
-                            </div>
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span> {{$data['topic']}}</span>
-                            </div>
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span> {{$data['description']}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">
-                        <img src="{{$val->thumbnail_size295}}"  height="80px" style="float: left;width: 40%">
-                        <div style="width: 60%;height: 77px;overflow: hidden">
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span style="color: #01376e">{{$val->name}}</span> - <span>{{$data['name']}}</span>
-                            </div>
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span> {{$data['topic']}}</span>
-                            </div>
-                            <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
-                                <span> {{$data['description']}}</span>
-                            </div>
-                        </div>
-                    </div>
                 @endforeach
             </div>
         </div>

@@ -51,7 +51,7 @@ class InformationController extends Controller
         /*$data['title'] = 'Panet Academy';
         $data['description'] = AboutUs::where('id', 1)->value('about_us');*/
        // return $this->apiResponse($url, null, 200);
-        return view('user.aboutUs');
+        return view('User.aboutUs');
     }
 
     public function termsAndServices()

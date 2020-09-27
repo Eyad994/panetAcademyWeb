@@ -90,7 +90,7 @@ class HomeController extends Controller
             ->where('semester_id', $request->semester_id)
             ->where('university_id', $request->university_id)->get();
 
-        $data['instructors'] = Instructor::select(DB::raw("*, CONCAT('$this->url/images/major/', image) as image"))
+        $data['instructors'] = Instructor::select(DB::raw("*, CONCAT('$this->url/images/instructor/', image) as image"))
             ->with(['university' => function ($query) {
                 $query->select('id', 'name');
             }])
@@ -99,7 +99,7 @@ class HomeController extends Controller
             }])->get();
 
 
-        $coursesWithTopics = Course::select(DB::raw("*, CONCAT('$this->url/images/major/', image) as image"))
+        $coursesWithTopics = Course::select(DB::raw("*, CONCAT('$this->url/images/course/', image) as image"))
         ->with(['instructor:id,name'])->with(['topic' => function ($query) use ($request) {
             $query->where('major_id', $request->major_id)
                 ->where('year_id', $request->year_id)
@@ -118,7 +118,7 @@ class HomeController extends Controller
         }
 
        //return $data;
-        return view('home',compact('data'));
+        return view('home', compact('data'));
         //return $this->apiResponse($data, null, 200);
     }
 
@@ -128,15 +128,15 @@ class HomeController extends Controller
     }
     public function contact()
     {
-        return view('user.contactUs');
+        return view('User.contactUs');
     }
     public function profile()
     {
-        return view('user.profile');
+        return view('User.profile');
     }
     public function joinUs()
     {
-        return view('user.joinUs');
+        return view('User.joinUs');
     }
 
 
