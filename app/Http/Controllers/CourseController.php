@@ -21,8 +21,8 @@ class CourseController extends Controller
     public function getCoursesByTopic($topicId)
     {
         $url = env('APP_URL');
-        $data = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
-            ->with(['instructor:id,name', 'topic:id,name'])
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
+            ->with(['instructor:id,name', 'topic:id,name', 'lectures'])
             ->withCount('lectures')
             ->where('topic_id', $topicId)->get();
 
@@ -40,13 +40,12 @@ class CourseController extends Controller
     public function getCoursesByInstructor($instructorId)
     {
         $url = env('APP_URL');
-        $data = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
             ->with(['instructor:id,name', 'topic:id,name', 'lectures'])
             ->withCount('lectures')
             ->where('instructor_id', $instructorId)->get();
 
         if (count($data) > 0) {
-
           //  return $this->apiResponse($courses, null, 200, 0);
             return view('User.topicCourses',compact('data'));
         } else {
@@ -61,7 +60,7 @@ class CourseController extends Controller
     public function getCourseDetails($courseId)
     {
         $url = env('APP_URL');
-        $course = Course::select(DB::raw("*, CONCAT('$url/images/major/', image) as image"))
+        $course = Course::select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
             ->where('id', $courseId)
             ->with('topic:id,name')
             ->with(['lectures' => function ($query) {
@@ -224,7 +223,7 @@ class CourseController extends Controller
         } else {
 
             $relatedLecturesArray = [];
-            $lecture = Video::where('course_id', $courseId)->first(); //where('id', $lectureId)->
+            $lecture = Video::where('id', $lectureId)->where('id', $lectureId)->where('course_id', $courseId)->first();
             if (is_null($lecture))
             {
                 $message = collect([]);

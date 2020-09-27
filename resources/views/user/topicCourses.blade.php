@@ -96,7 +96,6 @@
                     <div class="topics_content">
                         <div class="row">
                             @foreach($data as $k =>$val)
-
                                 <?php
                                 $x = $val->lectures->first();
                                 ?>

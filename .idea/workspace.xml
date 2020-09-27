@@ -4,7 +4,6 @@
     <list default="true" id="0d0a072e-8141-4da2-82c7-cbbe37476dfd" name="Default Changelist" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Video.php" afterPath="$PROJECT_DIR$/app/Models/Video.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/user/topicCourses.blade.php" afterPath="$PROJECT_DIR$/resources/views/user/topicCourses.blade.php" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/asm89/stack-cors/" />
@@ -164,10 +163,10 @@
       <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="202" column="36" lean-forward="false" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="36" />
+            <state relative-caret-position="3699">
+              <caret line="233" column="13" lean-forward="true" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
               <folding>
-                <marker date="1601212737008" expanded="true" signature="462:509" ph="{...}" />
+                <marker date="1601213179394" expanded="true" signature="462:509" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -186,8 +185,8 @@
       <file leaf-file-name="topicCourses.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/user/topicCourses.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="91" column="25" lean-forward="true" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -736,12 +735,12 @@
       <workItem from="1601028113772" duration="16308000" />
       <workItem from="1601129720958" duration="8692000" />
       <workItem from="1601151964964" duration="1458000" />
-      <workItem from="1601210014356" duration="2700000" />
+      <workItem from="1601210014356" duration="3139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75364000" />
+    <option name="totallyTimeSpent" value="75803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1087,18 +1086,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/topicCourses.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="91" column="25" lean-forward="true" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="202" column="36" lean-forward="false" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="36" />
+        <state relative-caret-position="3699">
+          <caret line="233" column="13" lean-forward="true" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
           <folding>
-            <marker date="1601212737008" expanded="true" signature="462:509" ph="{...}" />
+            <marker date="1601213179394" expanded="true" signature="462:509" ph="{...}" />
           </folding>
         </state>
       </provider>
