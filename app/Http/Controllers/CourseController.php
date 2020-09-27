@@ -261,7 +261,8 @@ class CourseController extends Controller
     public function userCourses(){
         $url = env('APP_URL');
         $data['courses'] = auth()->user()->courses;
-
+       /* $firstLecture = $data['courses']->first();
+        $data['lecture_id'] = Video::where('course_id', $firstLecture)->first();*/
         foreach ($data['courses'] as $key => $course)
         {
             $data['courses'][$key]['instructor'] = $course->instructor;
