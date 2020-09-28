@@ -28,6 +28,8 @@ Route::get('/userCourses', 'CourseController@userCourses');
 Route::get('/getLectures/{id}/{lecture_id?}', 'CourseController@getLectures');
 Route::get('university/{id}', 'HomeController@getCoursesByUniversity');
 Route::get('search/{text}', 'HomeController@search');
+Route::get('/termsAndConditions', 'HomeController@termsAndConditions');
+Route::get('/privacyPolicy', 'HomeController@privacyPolicy');
 
 /***************************************************************/
 
@@ -51,5 +53,5 @@ Route::get('aboutUs', 'InformationController@aboutUs');
 Route::get('termsAndServices', 'InformationController@termsAndServices');
 Route::post('forgetPassword', 'AuthController@forget');
 Route::get('settings', 'InformationController@settings');
-Route::get('fillterCourses', 'HomeController@fillterCourses');
+Route::get('filtersPage', 'HomeController@filtersPage');
 

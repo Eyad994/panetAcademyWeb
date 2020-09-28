@@ -152,7 +152,14 @@ class HomeController extends Controller
         //return $this->apiResponse($data, null, 200);
     }
 
-    public function fillterCourses()
+    public function termsAndConditions()
+    {
+        return view('user.termsAndConditions');
+    }
+    public function privacyPolicy()
+    {
+        return view('user.privacyPolicy');
+    } public function fillterCourses()
     {
         return view('fillterCourses');
     }
@@ -162,6 +169,7 @@ class HomeController extends Controller
     }
     public function profile()
     {
+
         return view('User.profile');
     }
     public function joinUs()

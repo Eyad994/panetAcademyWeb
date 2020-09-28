@@ -104,16 +104,16 @@
             </div>
         </div>
 
-        <div class="row" style="padding:0 20px; margin-top: 20px">
+        <div class="row" style="padding:0 40px; margin-top: 20px">
             @foreach($data['majors'] as $major)
                 <div class="col-md-2">
                     <a href="/university/{{ $major->id }}">
-                        <div style="background: #d9e5f1;width: 80px;height: 80px;border-radius: 100px; text-align: center">
+                        <div style="background: #d9e5f1;width: 100px;height: 100px;border-radius: 100px; text-align: center;padding: 10px">
                             <img src="{{asset("images/university/1598461384.png")}}" style="width: 74px;height: 74px;border-radius:80px" >
                         </div>
                     </a>
                     <br>
-                    <span style="font-size: 12px; padding-left: 20px">{{ $major->name }}</span>
+                    <span style="font-size: 14px; width: 100px;display: block;text-align: center;color: #00386e">{{ $major->name }}</span>
                 </div>
             @endforeach
         </div>
@@ -149,7 +149,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                @if(count($data['courses']) > 0)
+
+                 @if(count($data['courses']) > 0)
                     <div class="section_title">Popular Courses</div>
                     <div class="topics_content">
                         <div class="row">
@@ -158,7 +159,7 @@
                                 $x = $val->lectures->first();
                                 ?>
                                 <div class="col-md-4" style="margin-bottom: 20px">
-                                    <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
+                                 {{--   <a href="{{asset("getLectures/$val->id/".$x['id'])}}">--}}
                                         <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
                                             <img src="{{ asset("images/course/$val->image") }}"
                                                  style="width: 100%;height: 200px;object-fit: cover;">
@@ -171,7 +172,7 @@
                                                 <div style="font-size: 14px;padding: 5px 0px;height: 90px;overflow: hidden;">{{$val->description}}</div>
                                             </div>
                                         </div>
-                                    </a>
+                                    {{--</a>--}}
                                 </div>
                             @endforeach
                         </div>

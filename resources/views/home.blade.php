@@ -128,7 +128,7 @@
             <div class="col-md-12">
                 <img src="{{asset("img/home-hello.png")}}" style="width: 100%">
                 <div class="main_wlc">
-                    <span> Good Morning Ahmad</span>
+                    <span> Good Morning @auth{{auth()->user()->first_name}}@endauth</span>
                 </div>
                 <div class="sub_wlc">
                     <span>As long as you want success , make sure that you will achieve your gola </span>

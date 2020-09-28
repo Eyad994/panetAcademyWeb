@@ -1400,13 +1400,13 @@ var initApp = (function(app) {
 						}
 
 						/* save settings */
-						if ( typeof classHolder != 'undefined' || classHolder != null ) {
+						/*if ( typeof classHolder != 'undefined' || classHolder != null ) {
 
-							/* NOTE: saveSettings function is located right after <body> tag */
+							/!* NOTE: saveSettings function is located right after <body> tag *!/
 							initApp.checkNavigationOrientation();
 							initApp.saveSettings();
 						}
-
+*/
 						break;
 
 					/**

@@ -1,10 +1,10 @@
 <div class="col-md-3" style="background: #f8f9fb;">
     <div class="row" style="text-align: center">
         <div class="col-md-12 socal_media_icons" style="padding: 50px 10px">
-            <img src="{{asset("img/icons/instagram.svg")}}" class="mmm" style="width: 30px" >
-            <img src="{{asset("img/icons/facebook.svg")}}" style="width: 30px" class="fab fa-facebook"></img>
-            <img src="{{asset("img/icons/twitter.svg")}}" style="width: 30px" class="fab fa-twitter" ></img>
-            <img src="{{asset("img/icons/whatsapp.svg")}}" style="width: 30px" class="fab fa-whatsapp"></img>
+            <img src="{{asset("img/socialmedia/instagram.png")}}" class="mmm" style="width: 30px" >
+            <img src="{{asset("img/socialmedia/facebook.png")}}" style="width: 30px" class="fab fa-facebook"></img>
+            <img src="{{asset("img/socialmedia/twitter.png")}}" style="width: 30px" class="fab fa-twitter" ></img>
+            <img src="{{asset("img/socialmedia/whatsapp.png")}}" style="width: 30px" class="fab fa-whatsapp"></img>
         </div>
     </div>
     <div class="row">

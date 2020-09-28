@@ -52,6 +52,7 @@
         border-color: #01376e;
         background-color: #01376e !important;
         padding-top: 6px;
+        background-image:none;
 
     }
     .submit_filter_form{
@@ -102,6 +103,44 @@
         background: #555;
     }
 
+    .page-header{
+        display: none;
+    }
+    .sub_color_background{
+        display: none;
+    }
+    .login_logout
+    {
+        float: right;
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: #a8adaf;
+        width: 100%;
+        padding: 22px 30px;
+        cursor: pointer;
+    }
+    .login_logout:hover{
+        background: rgba(0, 0, 0, 0.1);
+        color: #000000;
+    }
+    .login_logout span
+    {
+        padding-left: 10px;
+    }
+    .socal_media_icons img{
+        cursor: pointer;
+    }
+    .socal_media_icons img:hover{
+        filter: opacity(500) drop-shadow(0 0 0 #013871);
+    }
+    @media (max-width: 768px) {
+        .page-header{
+            display: block;
+        }
+
+
+    }
 </style>
 <body class="mod-bg-1 ">
 <div class="page-wrapper">
@@ -129,46 +168,77 @@
                             <span class="nav-link-text" data-i18n="nav.application_intel">Home</span>
                         </a>
                     </li>
-                    @auth
                     <li>
-                        <a href="{{asset('userCourses')}}" title="Theme Settings" data-filter-tags="theme settings">
+                        <a href="{{asset('filtersPage')}}" title="Theme Settings" data-filter-tags="theme settings">
                             <i class="fal fa-th"></i>
                             <span class="nav-link-text" data-i18n="nav.theme_settings">Courses</span>
                         </a>
                     </li>
-                    @endauth
+                    @auth
                     <li>
-                        <a href="{{asset('joinUs')}}" title="Package Info" data-filter-tags="package info">
+                        <a href="{{asset('userCourses')}}" title="Theme Settings" data-filter-tags="theme settings">
+                            <i class="fal fa-th"></i>
+                            <span class="nav-link-text" data-i18n="nav.theme_settings">My Courses</span>
+                        </a>
+                    </li>
+                    @endauth
+                    @auth
+                    {{--Do Nothing--}}
+                    @else
+                    <li>
+                        <a href="{{asset('joinUs')}}"  >
                             <i class="fal fa-plus-square"></i>
                             <span class="nav-link-text" data-i18n="nav.package_info">Join us</span>
                         </a>
                     </li>
+                    @endauth
                     <li>
-                        <a href="#" title="Package Info" data-filter-tags="package info">
+                        <a href="{{asset("termsAndConditions")}}"  >
                             <i class="fal fa-file-alt"></i>
                             <span class="nav-link-text" data-i18n="nav.package_info">Terms & Conditions</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('aboutUs')}}" title="Package Info" data-filter-tags="package info">
+                        <a href="{{asset('aboutUs')}}"  >
                             <i class="fal fa-users"></i>
                             <span class="nav-link-text" data-i18n="nav.package_info">About Us</span>
                         </a>
                     </li>
                     @auth
                     <li>
-                        <a href="{{asset('profile')}}" title="Package Info" data-filter-tags="package info">
+                        <a href="{{asset('profile')}}"  >
                             <i class="fal fa-user"></i>
                             <span class="nav-link-text" data-i18n="nav.package_info">Profile</span>
                         </a>
                     </li>
                     @endauth
                     <li>
-                        <a href="{{asset('contact')}}" title="Package Info" data-filter-tags="package info">
+                        <a href="{{asset('contact')}}"  >
                             <i class="fal fa-pencil"></i>
                             <span class="nav-link-text" data-i18n="nav.package_info">Contact us</span>
                         </a>
                     </li>
+                    @auth
+                    <li>
+                        <a class="dropdown-item fw-500 pt-3 pb-3" href="{{ route('logout') }}"  class="login_logout"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            <i class="fal fa-sign-in" aria-hidden="true"></i>    {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                    @else
+                        <li>
+                            <div data-toggle="modal" data-target="#exampleModal" class="login_logout">
+                                <i class="fal fa-sign-in" aria-hidden="true"></i>
+                                <span>login</span>
+                            </div>
+
+                        </li>
+                    @endif
                 </ul>
                 <div class="filter-message js-filter-message bg-success-600"></div>
             </nav>
@@ -192,56 +262,13 @@
                         <i class="ni ni-menu"></i>
                     </a>
                 </div>
-
-                <div class="ml-auto d-flex">
-                    <!-- Useruser menu -->
-                    <div>
-                        <!-- Modal -->
-                        @auth
-                        <a href="#" data-toggle="dropdown" title="drlantern@gotbootstrap.com" class="header-icon d-flex align-items-center justify-content-center ml-2">
-                            <img src="{{asset('img/demo/avatars/avatar-admin.png')}}" class="profile-image rounded-circle" alt="Dr. Codex Lantern">
-                            <!-- you can also add username next to the avatar with the codes below:
-                            <span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">Me</span>
-                            <i class="ni ni-chevron-down hidden-xs-down"></i> -->
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
-                            <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
-                                <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
-                                            <span class="mr-2">
-                                                <img src="{{asset('img/demo/avatars/avatar-admin.png')}}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
-                                            </span>
-                                    <div class="info-card-text">
-                                        <div class="fs-lg text-truncate text-truncate-lg">{{ auth()->user()->username }}</div>
-                                        <span class="text-truncate text-truncate-md opacity-80">{{ auth()->user()->email }}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item fw-500 pt-3 pb-3" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                        @else
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right;background: none;border: none;box-shadow: none;color: #7d7878;">
-                                login
-                            </button>
-                        @endauth
-                    </div>
-                </div>
             </header>
             <!-- END Page Header -->
             <!-- BEGIN Page Content -->
             <!-- the #js-page-content id is needed for some plugins to initialize -->
             <main id="js-page-content" role="main" class="page-content" style="padding: 0px">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row" style="margin: 0">
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content" style="border-radius: 25px;margin-top: 120px">
