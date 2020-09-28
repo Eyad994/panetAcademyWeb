@@ -90,17 +90,7 @@
                 <h3 style="padding: 20px 0">Home</h3>
             </div>
             <div class="col-md-7">
-                <div class="input-group bg-white shadow-inset-2" style="border-radius: 50px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-right-0"
-                              style="border-radius: 50px 0px 0px 50px">
-                            <i class="fal fa-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control border-left-0 bg-transparent pl-0"
-                           placeholder="What are you looking for?"
-                           style="height: 50px;border-radius: 0px 50px 50px 0px;">
-                </div>
+                @include("User.search")
             </div>
         </div>
 
