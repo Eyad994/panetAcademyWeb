@@ -179,7 +179,7 @@
 
                     $(majors).each(function (index,value) {
                         $(".majors_main_div").append('<div class="major_container " style="cursor: pointer;" onclick="choosedmajor('+value.id+')">'
-                            +'<div class="majors major_'+value.id+'"><img src="'+value.logo+'" style="width: 74px;height: 74px;border-radius:80px "></div>'
+                            +'<div class="majors major_'+value.id+'"><img src="'+value.logo+'" style="width: 74px;height: 74px; padding: 10px"></div>'
                             +'<div class="major_title">'+value.name+'</div>'
                             +'</div>')
                     });

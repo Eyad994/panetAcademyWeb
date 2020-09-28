@@ -41,6 +41,7 @@
                 <h3 style="padding-bottom:20px ">Next Lecturers </h3>
             </div>
             <div class="col-md-12" style="height: 600px;overflow-y: scroll">
+
                 @foreach($data['related_lectures'] as $key => $val)
                     <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">
                         <img src="{{$val->thumbnail_size295}}"  height="80px" style="float: left;width: 40%">
