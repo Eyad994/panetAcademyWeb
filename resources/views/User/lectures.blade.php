@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-12" style="padding-top: 20px">
                 <div class="container">
-                    <iframe class="responsive-iframe" src="{{$data->uri}}"></iframe>
+                    <iframe id="iframe" class="responsive-iframe" src="{{$data->uri}}"></iframe>
                 </div>
             </div>
         </div>
@@ -83,3 +83,5 @@
     </div>
 
 @endsection
+
+

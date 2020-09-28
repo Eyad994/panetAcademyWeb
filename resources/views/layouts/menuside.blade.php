@@ -142,7 +142,32 @@
 
     }
 </style>
-<body class="mod-bg-1 ">
+<body class="mod-bg-1" @if(env('APP_URL') != 'http://127.0.0.1:8000') oncontextmenu="return false;" @endif>
+@if(env('APP_URL') != 'http://127.0.0.1:8000')
+    <script>
+
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+                return false;
+            }
+            if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+                return false;
+            }
+            if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+                return false;
+            }
+        }
+    </script>
+    @endif
 <div class="page-wrapper">
     <div class="page-inner">
         <!-- BEGIN Left Aside -->
