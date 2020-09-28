@@ -15,4 +15,9 @@ class Instructor extends BasicModel
     {
         return $this->belongsTo(Major::class, 'major_id');
     }
+
+    public function course()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

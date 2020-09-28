@@ -11,6 +11,7 @@ use App\Models\Semester;
 use App\Models\Topic;
 use App\Models\University;
 use App\Traits\ApiResponser;
+use function Couchbase\defaultDecoder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -22,6 +23,34 @@ class HomeController extends Controller
 
     public function index()
     {
+       $data = array();
+       $data['majors']= Major::latest()->take(7)->get();
+       $data['courses'] = Course::latest()->take(3)->get();
+       return $data;
+    }
+
+    public function search($text)
+    {
+        $url = env('APP_URL');
+        $data = Course::where('name', 'like', '%' . $text . '%')
+            ->orWhere('description', 'like', '%' . $text . '%')
+            ->select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
+            ->with(['instructor:id,name','topic', 'lectures'])
+            ->withCount('lectures')
+            ->get();
+
+        if (count($data) > 0) {
+            //  return $this->apiResponse($courses, null, 200, 0);
+            return view('User.topicCourses',compact('data'));
+        } else {
+            $message = collect([]);
+            $message->push('No instructors were found!');
+            return redirect('/')->with('msg', 'No Lectures were found');
+        }
+    }
+
+    public function filtersPage()  // Old Home
+    {
         $data = array();
         $this->url = env('APP_URL');
 
@@ -31,13 +60,12 @@ class HomeController extends Controller
         $data['semesters'] = Semester::select(['id', 'name'])->get();
         foreach ($data['universities'][0]['majors'] as $key => $value)
         {
-             $value['logo'] = "$this->url/images/major/".$value['logo'];
+            $value['logo'] = "$this->url/images/major/".$value['logo'];
         }
 
-       // return $data['universities'][0]->majors;
-      //  return view('fillterCourses',compact('data'));
+        // return $data['universities'][0]->majors;
+        //  return view('fillterCourses',compact('data'));
         return view('fillterCourses',compact('data'));
-
     }
 
     public function majors(Request $request)
@@ -137,6 +165,30 @@ class HomeController extends Controller
     public function joinUs()
     {
         return view('User.joinUs');
+    }
+
+    public function getCoursesByUniversity($id)
+    {
+        $url = env('APP_URL');
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
+            ->with(['instructor:id,name','topic', 'lectures'])
+            ->withCount('lectures')
+            ->get();
+
+        $data = $data->filter(function ($query) use ($id){
+           return $query->topic->university_id == $id;
+        });
+        if (count($data) > 0) {
+            //  return $this->apiResponse($courses, null, 200, 0);
+            return view('User.topicCourses',compact('data'));
+        } else {
+            $message = collect([]);
+            $message->push('No instructors were found!');
+
+            return redirect('/')->with('msg', 'No Lectures were found');
+            //return back()->with(['msg' => 'No instructors were found']);
+            //return $this->apiResponse(null, $message, 200, 1);
+        }
     }
 
 

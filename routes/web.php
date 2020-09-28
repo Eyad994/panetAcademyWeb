@@ -18,15 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@filtersPage');
+Route::get('/', 'HomeController@filtersPage');
 Route::get('/aboutUs', 'HomeController@aboutUs');
 Route::get('/profile', 'HomeController@profile');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/joinUs', 'HomeController@joinUs');
 Route::get('/userCourses', 'CourseController@userCourses');
 Route::get('/getLectures/{id}/{lecture_id?}', 'CourseController@getLectures');
-
+Route::get('university/{id}', 'HomeController@getCoursesByUniversity');
+Route::get('search/{text}', 'HomeController@search');
 
 /***************************************************************/
 
@@ -49,7 +50,6 @@ Route::group([
     });
 });
 
-Route::get('home', 'HomeController@index');
 Route::post('filters', 'HomeController@filters')->name('filters');
 Route::get('topic/{topic_id}', 'CourseController@getCoursesByTopic');
 Route::get('instructor/{instructor_id}', 'CourseController@getCoursesByInstructor');
@@ -62,3 +62,4 @@ Route::get('termsAndServices', 'InformationController@termsAndServices');
 Route::post('forgetPassword', 'AuthController@forget');
 Route::get('settings', 'InformationController@settings');
 Route::get('fillterCourses', 'HomeController@fillterCourses');
+
