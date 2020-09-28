@@ -194,7 +194,7 @@ class HomeController extends Controller
             $message = collect([]);
             $message->push('No instructors were found!');
 
-            return redirect('/')->with('msg', 'No Lectures were found');
+            return back()->with('msg', 'No Lectures was Found');
             //return back()->with(['msg' => 'No instructors were found']);
             //return $this->apiResponse(null, $message, 200, 1);
         }
@@ -217,7 +217,6 @@ class HomeController extends Controller
         } else {
             $message = collect([]);
             $message->push('No instructors were found!');
-
             return redirect('/')->with('msg', 'No Lectures were found');
             //return back()->with(['msg' => 'No instructors were found']);
             //return $this->apiResponse(null, $message, 200, 1);

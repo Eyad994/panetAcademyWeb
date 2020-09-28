@@ -93,6 +93,16 @@
                 @include("User.search")
             </div>
         </div>
+        <div class="col-md-12">
+            @if(session()->has('msg'))
+                <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('msg') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
 
         <div class="row" style="padding:0 40px; margin-top: 20px">
             @foreach($data['majors'] as $major)
@@ -149,7 +159,7 @@
                                 $x = $val->lectures->first();
                                 ?>
                                 <div class="col-md-4" style="margin-bottom: 20px">
-                                 {{--<a href="{{asset("getLectures/$val->id/".$x['id'])}}">--}}
+                                 <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
                                         <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
                                             <img src="{{ asset("images/course/$val->image") }}"
                                                  style="width: 100%;height: 200px;object-fit: cover;">
@@ -162,7 +172,7 @@
                                                 <div style="font-size: 14px;padding: 5px 0px;height: 90px;overflow: hidden;">{{$val->description}}</div>
                                             </div>
                                         </div>
-                                    {{--</a>--}}
+                                    </a>
                                 </div>
                             @endforeach
                         </div>

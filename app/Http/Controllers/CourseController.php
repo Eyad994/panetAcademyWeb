@@ -100,7 +100,7 @@ class CourseController extends Controller
             if ($courseUser->user_id == auth()->guard('api')->id()) {
                 $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
                 if (is_null($lecture))
-                    return $this->apiResponse(null, 'No lecture was found!', 200, 1);
+                    return $this->apiResponse(null, 'No Lectures was Found!', 200, 1);
                 $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
                 $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
                 $instructorName = $courseDetails['instructor']['name'];
@@ -131,7 +131,7 @@ class CourseController extends Controller
             if (is_null($lecture))
             {
                 $message = collect([]);
-                $message->push('No lecture was found!');
+                $message->push('No Lectures was Found!');
                 //return $this->apiResponse(null, $message, 200, 1);
             }
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
@@ -165,7 +165,7 @@ class CourseController extends Controller
         /*$relatedLecturesArray = [];
         $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
         if (is_null($lecture))
-            return $this->apiResponse(null, 'No lecture was found!', 200, 1);
+            return $this->apiResponse(null, 'No Lectures was Found!', 200, 1);
         $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
         $courseDetails = Course::where('id', $courseId)->with(['instructor', 'topic'])->first();
         $instructorName = $courseDetails['instructor']['name'];
@@ -196,8 +196,8 @@ class CourseController extends Controller
                 if ($courseUser->user_id == auth()->id()) {
                     $lecture = Video::where('id', $lectureId)->where('course_id', $courseId)->first();
                     if (is_null($lecture))
-                        return redirect('/');
-                    // return redirect()->back()->withErrors(['No Lecture was Found']);
+                        return back()->with('msg', 'No Lectures was Found');
+                    // return redirect()->back()->withErrors(['No Lectures was Found']);
 
                     $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
 
@@ -226,10 +226,7 @@ class CourseController extends Controller
             $lecture = Video::where('id', $lectureId)->where('id', $lectureId)->where('course_id', $courseId)->first();
             if (is_null($lecture))
             {
-                $message = collect([]);
-                $message->push('No lecture was found!');
-                return redirect('/');
-                //return redirect()->back()->withErrors(['No Lecture was Found']);
+                return back()->with('msg', 'No Lectures was Found');
             }
 
             $relatedLectures = Video::where('course_id', $courseId)->where('id', '!=', $lecture->id)->get();
