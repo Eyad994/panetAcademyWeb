@@ -103,7 +103,11 @@
                         <div class="row">
                             @foreach($data as $k =>$val)
                                 <?php
-                                $x = $val->lectures->first();
+                                if (isset($val->lectures)) {
+                                    $x = $val->lectures->first();
+                                } else {
+                                    $x = null;
+                                }
                                 ?>
                                     <div class="col-md-4" style="margin-bottom: 20px">
                                     <a href="{{asset("getLectures/$val->id/".$x['id'])}}">

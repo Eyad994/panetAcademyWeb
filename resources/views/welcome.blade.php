@@ -109,7 +109,8 @@
                 <div class="col-md-2">
                     <a href="/major/{{ $major->id }}">
                         <div style="background: #d9e5f1;width: 100px;height: 100px;border-radius: 100px; text-align: center;padding: 10px">
-                            <img src="{{asset("images/major/$major->logo")}}" style="width: 74px;height: 74px;border-radius:80px" >
+                            <img src="{{asset("images/major/$major->logo")}}"
+                                 style="width: 74px;height: 74px;border-radius:80px">
                         </div>
                     </a>
                     <br>
@@ -150,16 +151,20 @@
         <div class="row">
             <div class="col-md-12">
 
-                 @if(count($data['courses']) > 0)
+                @if(count($data['courses']) > 0)
                     <div class="section_title">Popular Courses</div>
                     <div class="topics_content">
                         <div class="row">
                             @foreach($data['courses'] as $k =>$val)
                                 <?php
-                                $x = $val->lectures->first();
+                                if (isset($val->lectures)) {
+                                    $x = $val->lectures->first();
+                                } else {
+                                        $x = null;
+                                }
                                 ?>
                                 <div class="col-md-4" style="margin-bottom: 20px">
-                                 <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
+                                    <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
                                         <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
                                             <img src="{{ asset("images/course/$val->image") }}"
                                                  style="width: 100%;height: 200px;object-fit: cover;">
