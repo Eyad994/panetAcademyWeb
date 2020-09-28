@@ -103,10 +103,10 @@
                         <div class="row">
                             @foreach($data as $k =>$val)
                                 <?php
-                                if (isset($val->lectures)) {
+                                if (count($val->lectures) > 0) {
                                     $x = $val->lectures->first();
                                 } else {
-                                    $x = null;
+                                    $x['id'] = null;
                                 }
                                 ?>
                                     <div class="col-md-4" style="margin-bottom: 20px">
