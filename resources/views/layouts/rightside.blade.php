@@ -15,7 +15,7 @@
             @foreach($instructors as $instructor)
                 <a href="/instructor/{{ $instructor->id }}">
                     <div style="background: #d9e5f1;width: 100%;border-radius: 5px;padding: 10px;float: left;margin-top: 20px">
-                        <img src="{{asset("img/doctor.jpg")}}" width="70px" height="70px" style="border-radius: 5px;float: left;object-fit: cover;">
+                        <img src="{{ env('APP_URL')."/images/instructor/$instructor->image" }}" width="70px" height="70px" style="border-radius: 5px;float: left;object-fit: cover;">
                         <div style="width: 50%;float: left;padding-left: 10px;    padding-top: 5px;">
                             <span class="lecturer_info_name">{{ $instructor->name }}</span>
                             <span  class="lecturer_info_details">{{ $instructor->major->name }}</span>
