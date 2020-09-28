@@ -109,8 +109,8 @@
                 <div class="col-md-2">
                     <a href="/major/{{ $major->id }}">
                         <div style="background: #d9e5f1;width: 100px;height: 100px;border-radius: 100px; text-align: center;padding: 10px">
-                            <img src="{{asset("images/major/$major->logo")}}"
-                                 style="width: 74px;height: 74px;border-radius:80px">
+                            <img src="{{ env('APP_URL')."/images/major/$major->logo" }}"
+                                 style="width: 74px;height: 74px; padding: 5px /*border-radius:80px*/">
                         </div>
                     </a>
                     <br>
