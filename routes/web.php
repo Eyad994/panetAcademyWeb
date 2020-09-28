@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@filtersPage');
-Route::get('/', 'HomeController@filtersPage');
+Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/aboutUs', 'HomeController@aboutUs');
 Route::get('/profile', 'HomeController@profile');
 Route::get('/contact', 'HomeController@contact');
@@ -37,17 +37,7 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     Route::get('registerDetails', 'AuthController@getRegisterDetails');
-    /*********************** Without *************************/
-    Route::group([
-        'middleware' => 'auth:api'
-    ], function() {
-        Route::get('logout', 'AuthController@logout');
-        Route::get('User', 'AuthController@User');
-        Route::post('updateProfile', 'AuthController@updateProfile');
-        /*Route::get('course/{courseId}/lecture/{lectureId}', 'CourseController@getLectures');*/
-
-        /*********************** With Token *************************/
-    });
+    Route::post('updateProfile', 'AuthController@updateProfile');
 });
 
 Route::post('filters', 'HomeController@filters')->name('filters');

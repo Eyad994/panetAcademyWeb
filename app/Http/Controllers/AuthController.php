@@ -203,6 +203,7 @@ class AuthController extends Controller
             foreach ($validator->messages()->all() as $item) {
                 $errors->push($item);
             }
+
             return $this->apiResponse(null, $errors, 422, 1);
         }
 
@@ -211,7 +212,7 @@ class AuthController extends Controller
         $message = collect([]);
         $message->push('Updated successfully');
 
-        return $this->apiResponse($user, $message, 200);
+        return redirect('/')->with('msg', 'Updated successfully');
     }
 
     public function forget(Request $request)

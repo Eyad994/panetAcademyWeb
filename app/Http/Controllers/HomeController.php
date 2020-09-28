@@ -24,9 +24,10 @@ class HomeController extends Controller
     public function index()
     {
        $data = array();
-       $data['majors']= Major::latest()->take(7)->get();
-       $data['courses'] = Course::latest()->take(3)->get();
-       return $data;
+       $data['majors']= Major::latest()->take(6)->get();
+       $data['courses'] = Course::with(['topic', 'lectures'])->latest()->take(3)->get();
+
+       return view('welcome', compact('data'));
     }
 
     public function search($text)
@@ -93,6 +94,7 @@ class HomeController extends Controller
 
     public function filters(Request $request)
     {
+
         $this->url = env('APP_URL');
 
         $validator = Validator::make($request->all(), [

@@ -1,100 +1,184 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.menuside')
+@section('content')
+    <style>
+        .topics_item {
+            border: 1px solid #a6a9ad;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            color: #a6a9ad;
+        }
 
-        <title>Laravel</title>
+        .section_title {
+            padding-bottom: 10px;
+        }
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        .circelx {
+            width: 100px;
+            height: 100px;
+            background: #f8f9fb;
+            float: left;
+            margin-left: 10px;
+            border-radius: 60px;
+            object-fit: cover;
+            border: 1px solid #013871;
+        }
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        .instructors_name {
+            padding-left: 120px;
+            color: #013871;
+            font-size: 16px;
+            padding-top: 20px;
+        }
 
-            .full-height {
-                height: 100vh;
-            }
+        .instructors_info {
+            padding-top: 7px;
+            padding-left: 120px;
+            font-size: 14px;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        .main_wlc {
+            font-size: 35px;
+            position: absolute;
+            top: 25%;
+            left: 50px;
+            color: #ffffff;
+        }
 
-            .position-ref {
-                position: relative;
-            }
+        .sub_wlc {
+            color: #ffffff;
+            position: absolute;
+            top: 41%;
+            left: 50px;
+            width: 50%;
+        }
 
-            .top-right {
+        @media (max-width: 768px) {
+            .sub_wlc {
+                color: #ffffff;
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                top: 45%;
+                left: 30px;
+                width: 50%;
             }
 
-            .content {
-                text-align: center;
+            .main_wlc {
+                color: #ffffff;
+                position: absolute;
+                top: 27%;
+                left: 30px;
+                width: 50%;
+
             }
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+            .main_wlc span {
                 font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
+
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            .sub_wlc span {
+                font-size: 10px;
             }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        }
+    </style>
+    <div class="col-md-9" style="background: #ffffff;padding: 50px 30px;">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+        <div class="row">
+            <div class="col-md-5">
+                <h3 style="padding: 20px 0">Home</h3>
+            </div>
+            <div class="col-md-7">
+                <div class="input-group bg-white shadow-inset-2" style="border-radius: 50px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent border-right-0"
+                              style="border-radius: 50px 0px 0px 50px">
+                            <i class="fal fa-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control border-left-0 bg-transparent pl-0"
+                           placeholder="What are you looking for?"
+                           style="height: 50px;border-radius: 0px 50px 50px 0px;">
                 </div>
             </div>
         </div>
-    </body>
-</html>
+
+        <div class="row" style="padding:0 20px; margin-top: 20px">
+            @foreach($data['majors'] as $major)
+                <div class="col-md-2">
+                    <a href="/university/{{ $major->id }}">
+                        <div style="background: #d9e5f1;width: 80px;height: 80px;border-radius: 100px; text-align: center">
+                            <img src="{{asset("images/university/1598461384.png")}}" style="width: 74px;height: 74px;border-radius:80px" >
+                        </div>
+                    </a>
+                    <br>
+                    <span style="font-size: 12px; padding-left: 20px">{{ $major->name }}</span>
+                </div>
+            @endforeach
+        </div>
+        <div class="row" style="margin-top: 10px">
+            {{--<div class="col-md-12">
+                @if(count($data['instructors']) > 0)
+                    <div class="section_title">Instructors</div>
+                    <div class="topics_content">
+                        <div class="row">
+                            @foreach($data['instructors'] as $k =>$val)
+                                <div class="col-xl-4 col-lg-6" style="padding-bottom: 20px">
+                                    <a href="{{asset("instructor/$val->id")}}"><img src="{{$val->image}}" class="circelx"></a>
+                                    <div class="instructors_name">{{$val->name}}</div>
+                                    <div class="instructors_info">{{$val->university->name}}</div>
+                                    <div class="instructors_info">{{$val->major->name}}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </div>--}}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{asset("img/home-hello.png")}}" style="width: 100%">
+                <div class="main_wlc">
+                    <span> Good Morning @auth {{ auth()->user()->first_name }} @endauth</span>
+                </div>
+                <div class="sub_wlc">
+                    <span>As long as you want success , make sure that you will achieve your gola </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @if(count($data['courses']) > 0)
+                    <div class="section_title">Popular Courses</div>
+                    <div class="topics_content">
+                        <div class="row">
+                            @foreach($data['courses'] as $k =>$val)
+                                <?php
+                                $x = $val->lectures->first();
+                                ?>
+                                <div class="col-md-4" style="margin-bottom: 20px">
+                                    <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
+                                        <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
+                                            <img src="{{ asset("images/course/$val->image") }}"
+                                                 style="width: 100%;height: 200px;object-fit: cover;">
+                                            <div style="height: 150px;background: #dce7f2;float: left;width: 100%;padding: 10px;overflow: hidden;">
+                                                <div style="padding-bottom: 5px;">
+                                                    <span style="color: #013871;font-weight: bold;font-size: 17px;">
+                                                        {{$val->name}} -
+                                                    </span><span>{{$val->topic->name}}</span></div>
+                                                <div style="color: #013871;font-weight: bold;font-size: 15px;">{{$val->instructor->name}}</div>
+                                                <div style="font-size: 14px;padding: 5px 0px;height: 90px;overflow: hidden;">{{$val->description}}</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    @include('layouts.rightside')
+@endsection
