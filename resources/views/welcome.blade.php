@@ -166,7 +166,7 @@
                                 <div class="col-md-4" style="margin-bottom: 20px">
                                     <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
                                         <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
-                                            <img src="{{ asset("images/course/$val->image") }}"
+                                            <img src="{{ env('APP_URL')."/images/course/$val->image" }}"
                                                  style="width: 100%;height: 200px;object-fit: cover;">
                                             <div style="height: 150px;background: #dce7f2;float: left;width: 100%;padding: 10px;overflow: hidden;">
                                                 <div style="padding-bottom: 5px;">

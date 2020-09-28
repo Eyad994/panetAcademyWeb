@@ -39,7 +39,7 @@
                 <div class="col-md-4">
                     <a href="/university/{{ $university->id }}">
                         <div style="background: #d9e5f1;width: 80px;height: 80px;border-radius: 100px;">
-                            <img src="{{asset("images/university/$university->logo")}}" style="width: 50px;padding: 0px;margin-left: 15px;margin-top: 10px;">
+                            <img src="{{ env('APP_URL')."/images/university/$university->logo" }}" style="width: 50px;padding: 0px;margin-left: 15px;margin-top: 10px;">
                         </div>
                     </a>
                     <br>
