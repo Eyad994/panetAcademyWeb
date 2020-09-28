@@ -23,14 +23,14 @@
                 </h1>
             </div>
         </div>
-        <form action="">
+        <form action="{{ route('updateProfile') }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-md-6" style="padding-top:10px;text-align: justify ">
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="firstname" class="formRow--input-wrapper js-inputWrapper">
-                                <input type="text" class="formRow--input js-input" name="firstname" id="firstname" value="{{ auth()->user()->first_name }}" placeholder="First name">
+                                <input type="text" class="formRow--input js-input" name="first_name" id="firstname" value="{{ auth()->user()->first_name }}" placeholder="First name">
                             </label>
                         </div>
                     </fieldset>
@@ -39,7 +39,7 @@
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="lastname" class="formRow--input-wrapper js-inputWrapper">
-                                <input type="text" class="formRow--input js-input" name="lastname" id="lastname" value="{{ auth()->user()->last_name }}" placeholder="Last name">
+                                <input type="text" class="formRow--input js-input" name="last_name" id="lastname" value="{{ auth()->user()->last_name }}" placeholder="Last name">
                             </label>
                         </div>
                     </fieldset>
@@ -67,9 +67,9 @@
                         <div class="formRow--item">
                             <label for="gender" class="formRow--input-wrapper js-inputWrapper">
                                 <select class="formRow--input js-input" name="gender" id="gender" placeholder="Gender" style="background: #ffffff">
-                                    <option value=""></option>
-                                    <option value="male" {{ auth()->user()->gender == 1 ? 'selected' : '' }}>Male</option>
-                                    <option value="female" {{ auth()->user()->gender == 2 ? 'selected' : '' }}>Female</option>
+                                    <option value="" disabled>Select a gender</option>
+                                    <option value="1" {{ auth()->user()->gender == 1 ? 'selected' : '' }}>Male</option>
+                                    <option value="2" {{ auth()->user()->gender == 2 ? 'selected' : '' }}>Female</option>
                                 </select>
                             </label>
                         </div>
@@ -79,7 +79,7 @@
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="birthdate" class="formRow--input-wrapper js-inputWrapper">
-                                <input type="date" class="formRow--input js-input" name="birthdate" id="birthdate" placeholder="">
+                                <input type="text" class="formRow--input js-input" name="date_of_birth" value="{{ auth()->user()->date_of_birth }}" id="birthdate" placeholder="">
                             </label>
                         </div>
                     </fieldset>
@@ -88,8 +88,8 @@
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="university" class="formRow--input-wrapper js-inputWrapper">
-                                <select class="formRow--input js-input" id="university" placeholder="" style="background: #FFFFFF">
-                                    <option value="" selected>{{ auth()->user()->university->name }}</option>
+                                <select class="formRow--input js-input" name="university_id" id="university" placeholder="" style="background: #FFFFFF">
+                                    <option value="{{ auth()->user()->university->id }}" selected>{{ auth()->user()->university->name }}</option>
                                 </select>
                             </label>
                         </div>
@@ -102,7 +102,7 @@
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="major" class="formRow--input-wrapper js-inputWrapper">
-                                <input type="text" class="formRow--input js-input" value="{{ auth()->user()->major->name }}" id="major" placeholder="Major">
+                                <input type="text" class="formRow--input js-input" name="major_id" value="{{ auth()->user()->major->id }}" id="major" placeholder="Major">
                             </label>
                         </div>
                     </fieldset>
@@ -111,7 +111,7 @@
                     <fieldset class="formRow">
                         <div class="formRow--item">
                             <label for="academicyear" class="formRow--input-wrapper js-inputWrapper">
-                                <input type="text" class="formRow--input js-input" value="{{ auth()->user()->academic->name }}" id="academicyear" placeholder="Academic Year">
+                                <input type="text" class="formRow--input js-input" name="academic_id" value="{{ auth()->user()->academic->id }}" id="academicyear" placeholder="Academic Year">
                             </label>
                         </div>
                     </fieldset>
@@ -133,6 +133,17 @@
                 <input type="submit" class="submit_filter_form" value="Update">
             </div>
         </form>
+        <br>
+
+        @if(session()->has('msg'))
+            <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                {{ session('msg') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
     </div>
     @include('layouts.rightside')
 

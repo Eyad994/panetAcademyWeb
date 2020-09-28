@@ -24,6 +24,7 @@ Route::get('/aboutUs', 'HomeController@aboutUs');
 Route::get('/profile', 'HomeController@profile');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/joinUs', 'HomeController@joinUs');
+Route::get('major/{id}', 'HomeController@getCoursesByMajor');
 Route::get('/userCourses', 'CourseController@userCourses');
 Route::get('/getLectures/{id}/{lecture_id?}', 'CourseController@getLectures');
 Route::get('university/{id}', 'HomeController@getCoursesByUniversity');
@@ -39,7 +40,7 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     Route::get('registerDetails', 'AuthController@getRegisterDetails');
-    Route::post('updateProfile', 'AuthController@updateProfile');
+    Route::post('updateProfile', 'AuthController@updateProfile')->name('updateProfile');
 });
 
 Route::post('filters', 'HomeController@filters')->name('filters');

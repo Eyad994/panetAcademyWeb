@@ -212,6 +212,7 @@ class AuthController extends Controller
         $message = collect([]);
         $message->push('Updated successfully');
 
+        return back()->with(['msg' => 'Updated Successfully']);
         return redirect('/')->with('msg', 'Updated successfully');
     }
 

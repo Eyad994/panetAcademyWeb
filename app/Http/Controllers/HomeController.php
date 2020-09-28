@@ -169,7 +169,6 @@ class HomeController extends Controller
     }
     public function profile()
     {
-
         return view('User.profile');
     }
     public function joinUs()
@@ -186,7 +185,31 @@ class HomeController extends Controller
             ->get();
 
         $data = $data->filter(function ($query) use ($id){
-           return $query->topic->university_id == $id;
+            return $query->topic->university_id == $id;
+        });
+        if (count($data) > 0) {
+            //  return $this->apiResponse($courses, null, 200, 0);
+            return view('User.topicCourses',compact('data'));
+        } else {
+            $message = collect([]);
+            $message->push('No instructors were found!');
+
+            return redirect('/')->with('msg', 'No Lectures were found');
+            //return back()->with(['msg' => 'No instructors were found']);
+            //return $this->apiResponse(null, $message, 200, 1);
+        }
+    }
+
+    public function getCoursesByMajor($id)
+    {
+        $url = env('APP_URL');
+        $data = Course::select(DB::raw("*, CONCAT('$url/images/course/', image) as image"))
+            ->with(['instructor:id,name','topic', 'lectures'])
+            ->withCount('lectures')
+            ->get();
+
+        $data = $data->filter(function ($query) use ($id){
+            return $query->topic->major_id == $id;
         });
         if (count($data) > 0) {
             //  return $this->apiResponse($courses, null, 200, 0);
