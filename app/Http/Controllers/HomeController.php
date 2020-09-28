@@ -30,8 +30,9 @@ class HomeController extends Controller
        return view('welcome', compact('data'));
     }
 
-    public function search($text)
+    public function search(Request $request)
     {
+        $text = $request->search;
         $url = env('APP_URL');
         $data = Course::where('name', 'like', '%' . $text . '%')
             ->orWhere('description', 'like', '%' . $text . '%')
@@ -94,7 +95,6 @@ class HomeController extends Controller
 
     public function filters(Request $request)
     {
-
         $this->url = env('APP_URL');
 
         $validator = Validator::make($request->all(), [

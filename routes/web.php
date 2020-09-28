@@ -28,7 +28,7 @@ Route::get('major/{id}', 'HomeController@getCoursesByMajor');
 Route::get('/userCourses', 'CourseController@userCourses');
 Route::get('/getLectures/{id}/{lecture_id?}', 'CourseController@getLectures');
 Route::get('university/{id}', 'HomeController@getCoursesByUniversity');
-Route::get('search/{text}', 'HomeController@search');
+Route::get('search', 'HomeController@search');
 Route::get('/termsAndConditions', 'HomeController@termsAndConditions');
 Route::get('/privacyPolicy', 'HomeController@privacyPolicy');
 
@@ -43,7 +43,7 @@ Route::group([
     Route::post('updateProfile', 'AuthController@updateProfile')->name('updateProfile');
 });
 
-Route::post('filters', 'HomeController@filters')->name('filters');
+Route::get('filters', 'HomeController@filters')->name('filters');
 Route::get('topic/{topic_id}', 'CourseController@getCoursesByTopic');
 Route::get('instructor/{instructor_id}', 'CourseController@getCoursesByInstructor');
 Route::get('course/{course_id}', 'CourseController@getCourseDetails');

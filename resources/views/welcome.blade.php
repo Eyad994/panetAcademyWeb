@@ -149,7 +149,7 @@
                                 $x = $val->lectures->first();
                                 ?>
                                 <div class="col-md-4" style="margin-bottom: 20px">
-                                 <a href="{{asset("getLectures/$val->id/".$x['id'])}}">
+                                 {{--<a href="{{asset("getLectures/$val->id/".$x['id'])}}">--}}
                                         <div style="width: 100%;height: 350px;overflow: hidden;border-radius: 15px;">
                                             <img src="{{ asset("images/course/$val->image") }}"
                                                  style="width: 100%;height: 200px;object-fit: cover;">
@@ -162,7 +162,7 @@
                                                 <div style="font-size: 14px;padding: 5px 0px;height: 90px;overflow: hidden;">{{$val->description}}</div>
                                             </div>
                                         </div>
-                                    </a>
+                                    {{--</a>--}}
                                 </div>
                             @endforeach
                         </div>

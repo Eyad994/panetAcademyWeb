@@ -25,13 +25,8 @@
                 <h3 style="padding: 20px 0"><span style="color: #01376e">{{$data->name}}</span> - {{$data->topic}}</h3>
             </div>
             <div class="col-md-7">
-                <div class="input-group bg-white shadow-inset-2" style="border-radius: 50px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-right-0" style="border-radius: 50px 0px 0px 50px">
-                            <i class="fal fa-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control border-left-0 bg-transparent pl-0" placeholder="What are you looking for?" style="height: 50px;border-radius: 0px 50px 50px 0px;">
+                <div class="col-md-7">
+                    @include("User.search")
                 </div>
             </div>
         </div>
@@ -53,11 +48,11 @@
     </div>
     <div class="col-md-3" style="background: #f8f9fb;">
         <div class="row" style="text-align: center">
-            <div class="col-md-12" style="padding: 50px 10px">
-                <img src="{{asset('img/icons/instagram.svg')}}" style="width: 30px" >
-                <img src="{{asset('img/icons/facebook.svg')}}" style=" width: 30px" class="fab fa-facebook"></img>
-                <img src="{{asset('img/icons/twitter.svg')}}" style="width: 30px" class="fab fa-twitter" ></img>
-                <img src="{{asset('img/icons/whatsapp.svg')}}" style="width: 30px" class="fab fa-whatsapp"></img>
+            <div class="col-md-12 socal_media_icons" style="padding: 50px 10px">
+                <img src="{{asset("img/socialmedia/instagram.png")}}" class="mmm" style="width: 30px" >
+                <img src="{{asset("img/socialmedia/facebook.png")}}" style="width: 30px" class="fab fa-facebook"></img>
+                <img src="{{asset("img/socialmedia/twitter.png")}}" style="width: 30px" class="fab fa-twitter" ></img>
+                <img src="{{asset("img/socialmedia/whatsapp.png")}}" style="width: 30px" class="fab fa-whatsapp"></img>
             </div>
         </div>
         <div class="row">

@@ -67,19 +67,14 @@
                 <h3>Courses</h3>
             </div>
             <div class="col-md-7">
-                <div class="input-group bg-white shadow-inset-2" style="border-radius: 50px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-right-0" style="border-radius: 50px 0px 0px 50px">
-                            <i class="fal fa-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control border-left-0 bg-transparent pl-0" placeholder="What are you looking for?" style="height: 50px;border-radius: 0px 50px 50px 0px;">
+                <div class="col-md-7">
+                    @include("User.search")
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form action="{{asset('filters')}}" method="POST" class="filters_form" >
+                <form action="{{asset('filters')}}" method="GET" class="filters_form" >
                     @csrf
 
                     <ol class="timeline">
