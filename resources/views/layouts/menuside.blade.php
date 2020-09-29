@@ -223,12 +223,18 @@
                             <span class="nav-link-text" data-i18n="nav.package_info">Terms & Conditions</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{asset('aboutUs')}}"  >
-                            <i class="fal fa-users"></i>
-                            <span class="nav-link-text" data-i18n="nav.package_info">About Us</span>
-                        </a>
-                    </li>
+                        <li>
+                            <a href="{{asset('aboutUs')}}"  >
+                                <i class="fal fa-users"></i>
+                                <span class="nav-link-text" data-i18n="nav.package_info">About Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{asset('privacyPolicy')}}"  >
+                                <i class="fal fa-users"></i>
+                                <span class="nav-link-text" data-i18n="nav.package_info">Privacy Policy</span>
+                            </a>
+                        </li>
                     @auth
                     <li>
                         <a href="{{asset('profile')}}"  >

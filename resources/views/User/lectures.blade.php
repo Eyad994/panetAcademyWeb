@@ -18,7 +18,7 @@
             height: 100%;
             border: none;
         }
-        </style>
+    </style>
     <div class="col-md-9" style="background: #ffffff;padding: 50px 30px;">
         <div class="row">
             <div class="col-md-5">
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-12" style="padding-top: 20px">
                 <div class="container">
-                    <iframe id="iframe" class="responsive-iframe" src="{{$data->uri}}"></iframe>
+                    <iframe id="iframe" class="responsive-iframe" src="{{$data->uri}}" ></iframe>
                 </div>
             </div>
         </div>
@@ -49,9 +49,9 @@
     <div class="col-md-3" style="background: #f8f9fb;">
         <div class="row" style="text-align: center">
             <div class="col-md-12 socal_media_icons" style="padding: 50px 10px">
-                <img src="{{asset("img/socialmedia/instagram.png")}}" class="mmm" style="width: 30px" >
+                <img src="{{asset("img/socialmedia/instagram.png")}}" class="mmm" style="width: 30px">
                 <img src="{{asset("img/socialmedia/facebook.png")}}" style="width: 30px" class="fab fa-facebook"></img>
-                <img src="{{asset("img/socialmedia/twitter.png")}}" style="width: 30px" class="fab fa-twitter" ></img>
+                <img src="{{asset("img/socialmedia/twitter.png")}}" style="width: 30px" class="fab fa-twitter"></img>
                 <img src="{{asset("img/socialmedia/whatsapp.png")}}" style="width: 30px" class="fab fa-whatsapp"></img>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 @foreach($data->related_lectures as $key => $val)
                     <a href="{{asset('getLectures/'.$data->course_id.'/'.$val->id)}}">
                         <div style="width: 100%;border-radius: 5px;padding: 10px;float: left;font-size: 13px;">
-                            <img src="{{$val->thumbnail_size295}}"  height="80px" style="float: left;width: 40%">
+                            <img src="{{$val->thumbnail_size295}}" height="80px" style="float: left;width: 40%">
                             <div style="width: 60%;height: 77px;overflow: hidden">
                                 <div style="width: 100%;float: left;padding-left: 10px;color:#797b7d">
                                     <span style="color: #01376e">{{$val->name}}</span> - <span>{{$data->name}}</span>

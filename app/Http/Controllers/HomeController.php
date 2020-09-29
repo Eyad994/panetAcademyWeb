@@ -154,11 +154,11 @@ class HomeController extends Controller
 
     public function termsAndConditions()
     {
-        return view('user.termsAndConditions');
+        return view('User.termsAndConditions');
     }
     public function privacyPolicy()
     {
-        return view('user.privacyPolicy');
+        return view('User.privacyPolicy');
     } public function fillterCourses()
     {
         return view('fillterCourses');
