@@ -85,7 +85,6 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        dd($request->all());
         $validator = Validator::make($request->all(), [
             'username' => 'required|string',
             'password' => 'required|string',
@@ -186,8 +185,8 @@ class AuthController extends Controller
     {
         $user = auth()->user();
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            //'first_name' => 'required',
+            //'last_name' => 'required',
             'phone_number' => 'required|unique:users,phone_number,'.$user->id,
             'email' => 'required|email|unique:users,email,'.$user->id,
             /*'password' => 'required|min:6',*/
@@ -207,7 +206,7 @@ class AuthController extends Controller
             return $this->apiResponse(null, $errors, 422, 1);
         }
 
-        $user->update($request->except(['password', 'username']));
+        $user->update($request->except(['password', 'username', 'first_name', 'last_name']));
         /*$User->update(['password' => Hash::make($request->password)]);*/
         $message = collect([]);
         $message->push('Updated successfully');
