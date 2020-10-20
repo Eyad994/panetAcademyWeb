@@ -35,8 +35,8 @@
                 <div class="container">
                     <iframe id="iframe" class="responsive-iframe" src="{{$data->uri}}" ></iframe>
                 </div>
-                <div style="position: absolute;font-size: 45px;top: 92px;padding: 20px;transform: rotate(90deg);color:#6dd6bc8f">{{auth()->user()->first_name}}</div>
-                <div style="position: absolute;font-size: 45px;top: 45%;padding: 20px;transform: rotate(90deg);right: 100px;color: #6dd6bc8f">{{auth()->user()->first_name}}</div>
+                <div style="position: absolute;font-size: 45px;top: 92px;padding: 20px;transform: rotate(90deg);color:#6dd6bc8f">{{auth()->user()->first_name.' '.auth()->user()->last_name}}</div>
+                <div style="position: absolute;font-size: 45px;top: 45%;padding: 20px;transform: rotate(90deg);right: 100px;color: #6dd6bc8f">{{auth()->user()->first_name.' '.auth()->user()->last_name}}</div>
             </div>
         </div>
         <div class="row">
