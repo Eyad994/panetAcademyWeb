@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
        $data = array();
        $data['majors']= Major::latest()->take(6)->get();
-       $data['courses'] = Course::with(['topic', 'lectures'])->latest()->take(3)->get();
+       $data['courses'] = Course::whereHas('topic')->whereHas('instructor')->with(['topic', 'lectures', 'instructor'])->latest()->take(3)->get();
 
        return view('welcome', compact('data'));
     }
